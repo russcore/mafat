@@ -1,0 +1,452 @@
+=== CALLER IDENTITY ===
+{
+    "UserId": "AROAQEP7C2HWZYKJGPIHM:stage2-recon",
+    "Account": "009661764077",
+    "Arn": "arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon"
+}
+
+=== USER BUCKET POLICY ===
+
+aws: [ERROR]: An error occurred (AccessDenied) when calling the GetBucketPolicy operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: s3:GetBucketPolicy on resource: "arn:aws:s3:::user1efd57991fd67473" because no resource-based policy allows the s3:GetBucketPolicy action
+DENIED
+
+=== LOG BUCKET POLICY ===
+
+aws: [ERROR]: An error occurred (AccessDenied) when calling the GetBucketPolicy operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: s3:GetBucketPolicy on resource: "arn:aws:s3:::log1efd57991fd67473" because no resource-based policy allows the s3:GetBucketPolicy action
+DENIED
+
+=== CLOUDFRONT DISTRIBUTIONS ===
+{
+    "DistributionList": {
+        "Items": [
+            {
+                "Id": "EKD9KH16RB5G3",
+                "ARN": "arn:aws:cloudfront::009661764077:distribution/EKD9KH16RB5G3",
+                "ETag": "E23ZP02F085DFQ",
+                "Status": "Deployed",
+                "LastModifiedTime": "2026-07-29T16:29:28.290000+00:00",
+                "DomainName": "d67nf28gqfurd.cloudfront.net",
+                "Aliases": {
+                    "Quantity": 0
+                },
+                "Origins": {
+                    "Quantity": 1,
+                    "Items": [
+                        {
+                            "Id": "s3_oac",
+                            "DomainName": "site781fe43f26b9eba3.s3.us-east-1.amazonaws.com",
+                            "OriginPath": "",
+                            "CustomHeaders": {
+                                "Quantity": 0
+                            },
+                            "S3OriginConfig": {
+                                "OriginAccessIdentity": "",
+                                "OriginReadTimeout": 30
+                            },
+                            "ConnectionAttempts": 3,
+                            "ConnectionTimeout": 10,
+                            "OriginShield": {
+                                "Enabled": false
+                            },
+                            "OriginAccessControlId": "E1UOO8R317GEA1"
+                        }
+                    ]
+                },
+                "OriginGroups": {
+                    "Quantity": 0
+                },
+                "DefaultCacheBehavior": {
+                    "TargetOriginId": "s3_oac",
+                    "TrustedSigners": {
+                        "Enabled": false,
+                        "Quantity": 0
+                    },
+                    "TrustedKeyGroups": {
+                        "Enabled": false,
+                        "Quantity": 0
+                    },
+                    "ViewerProtocolPolicy": "allow-all",
+                    "AllowedMethods": {
+                        "Quantity": 3,
+                        "Items": [
+                            "HEAD",
+                            "GET",
+                            "OPTIONS"
+                        ],
+                        "CachedMethods": {
+                            "Quantity": 2,
+                            "Items": [
+                                "HEAD",
+                                "GET"
+                            ]
+                        }
+                    },
+                    "SmoothStreaming": false,
+                    "Compress": false,
+                    "LambdaFunctionAssociations": {
+                        "Quantity": 0
+                    },
+                    "FunctionAssociations": {
+                        "Quantity": 0
+                    },
+                    "FieldLevelEncryptionId": "",
+                    "CachePolicyId": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
+                    "GrpcConfig": {
+                        "Enabled": false
+                    }
+                },
+                "CacheBehaviors": {
+                    "Quantity": 0
+                },
+                "CustomErrorResponses": {
+                    "Quantity": 0
+                },
+                "Comment": "CloudFront distribution for S3 bucket.",
+                "PriceClass": "PriceClass_100",
+                "Enabled": true,
+                "ViewerCertificate": {
+                    "CloudFrontDefaultCertificate": true,
+                    "SSLSupportMethod": "vip",
+                    "MinimumProtocolVersion": "TLSv1",
+                    "CertificateSource": "cloudfront"
+                },
+                "Restrictions": {
+                    "GeoRestriction": {
+                        "RestrictionType": "whitelist",
+                        "Quantity": 1,
+                        "Items": [
+                            "IL"
+                        ]
+                    }
+                },
+                "WebACLId": "arn:aws:wafv2:us-east-1:009661764077:global/webacl/cloudfront-waf/9e7d5a49-e381-4d96-883b-a01ea6d5d18e",
+                "HttpVersion": "HTTP2",
+                "IsIPV6Enabled": false,
+                "Staging": false,
+                "ConnectionMode": "direct"
+            }
+        ]
+    }
+}
+
+=== CLOUDFRONT DISTRIBUTION DETAILS ===
+--- Distribution: EKD9KH16RB5G3 ---
+{
+    "ETag": "E23ZP02F085DFQ",
+    "Distribution": {
+        "Id": "EKD9KH16RB5G3",
+        "ARN": "arn:aws:cloudfront::009661764077:distribution/EKD9KH16RB5G3",
+        "Status": "Deployed",
+        "LastModifiedTime": "2026-07-29T16:29:28.290000+00:00",
+        "InProgressInvalidationBatches": 0,
+        "DomainName": "d67nf28gqfurd.cloudfront.net",
+        "ActiveTrustedSigners": {
+            "Enabled": false,
+            "Quantity": 0
+        },
+        "ActiveTrustedKeyGroups": {
+            "Enabled": false,
+            "Quantity": 0
+        },
+        "DistributionConfig": {
+            "CallerReference": "terraform-20260729162928164300000002",
+            "Aliases": {
+                "Quantity": 0
+            },
+            "DefaultRootObject": "index.html",
+            "Origins": {
+                "Quantity": 1,
+                "Items": [
+                    {
+                        "Id": "s3_oac",
+                        "DomainName": "site781fe43f26b9eba3.s3.us-east-1.amazonaws.com",
+                        "OriginPath": "",
+                        "CustomHeaders": {
+                            "Quantity": 0
+                        },
+                        "S3OriginConfig": {
+                            "OriginAccessIdentity": "",
+                            "OriginReadTimeout": 30
+                        },
+                        "ConnectionAttempts": 3,
+                        "ConnectionTimeout": 10,
+                        "OriginShield": {
+                            "Enabled": false
+                        },
+                        "OriginAccessControlId": "E1UOO8R317GEA1"
+                    }
+                ]
+            },
+            "OriginGroups": {
+                "Quantity": 0
+            },
+            "DefaultCacheBehavior": {
+                "TargetOriginId": "s3_oac",
+                "TrustedSigners": {
+                    "Enabled": false,
+                    "Quantity": 0
+                },
+                "TrustedKeyGroups": {
+                    "Enabled": false,
+                    "Quantity": 0
+                },
+                "ViewerProtocolPolicy": "allow-all",
+                "AllowedMethods": {
+                    "Quantity": 3,
+                    "Items": [
+                        "HEAD",
+                        "GET",
+                        "OPTIONS"
+                    ],
+                    "CachedMethods": {
+                        "Quantity": 2,
+                        "Items": [
+                            "HEAD",
+                            "GET"
+                        ]
+                    }
+                },
+                "SmoothStreaming": false,
+                "Compress": false,
+                "LambdaFunctionAssociations": {
+                    "Quantity": 0
+                },
+                "FunctionAssociations": {
+                    "Quantity": 0
+                },
+                "FieldLevelEncryptionId": "",
+                "CachePolicyId": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
+                "GrpcConfig": {
+                    "Enabled": false
+                }
+            },
+            "CacheBehaviors": {
+                "Quantity": 0
+            },
+            "CustomErrorResponses": {
+                "Quantity": 0
+            },
+            "Comment": "CloudFront distribution for S3 bucket.",
+            "Logging": {
+                "Enabled": false,
+                "IncludeCookies": false,
+                "Bucket": "",
+                "Prefix": ""
+            },
+            "PriceClass": "PriceClass_100",
+            "Enabled": true,
+            "ViewerCertificate": {
+                "CloudFrontDefaultCertificate": true,
+                "SSLSupportMethod": "vip",
+                "MinimumProtocolVersion": "TLSv1",
+                "CertificateSource": "cloudfront"
+            },
+            "Restrictions": {
+                "GeoRestriction": {
+                    "RestrictionType": "whitelist",
+                    "Quantity": 1,
+                    "Items": [
+                        "IL"
+                    ]
+                }
+            },
+            "WebACLId": "arn:aws:wafv2:us-east-1:009661764077:global/webacl/cloudfront-waf/9e7d5a49-e381-4d96-883b-a01ea6d5d18e",
+            "HttpVersion": "http2",
+            "IsIPV6Enabled": false,
+            "ContinuousDeploymentPolicyId": "",
+            "Staging": false
+        }
+    }
+}
+
+=== LAMBDA FUNCTIONS ===
+{
+    "Functions": [
+        {
+            "FunctionName": "nslookupv2",
+            "FunctionArn": "arn:aws:lambda:us-east-1:009661764077:function:nslookupv2",
+            "Runtime": "python3.13",
+            "Role": "arn:aws:iam::009661764077:role/lambdaRole",
+            "Handler": "lambda_function.lambda_handler",
+            "CodeSize": 469,
+            "Description": "",
+            "Timeout": 15,
+            "MemorySize": 512,
+            "LastModified": "2026-07-29T16:29:44.127+0000",
+            "CodeSha256": "CFvxHj1Tj/ZdUahrJE3buoQSfAn8b2ytHDicjIhAioI=",
+            "Version": "$LATEST",
+            "VpcConfig": {
+                "SubnetIds": [
+                    "subnet-0d86c3129f4405706"
+                ],
+                "SecurityGroupIds": [
+                    "sg-0de9d1a2c42a08a3e"
+                ],
+                "VpcId": "vpc-09328d3fa21dce320",
+                "Ipv6AllowedForDualStack": false
+            },
+            "TracingConfig": {
+                "Mode": "PassThrough"
+            },
+            "RevisionId": "f62901db-4565-46f5-ad29-480c2d13867c",
+            "Layers": [
+                {
+                    "Arn": "arn:aws:lambda:us-east-1:009661764077:layer:aws_cli_layer:8",
+                    "CodeSize": 27364562
+                },
+                {
+                    "Arn": "arn:aws:lambda:us-east-1:009661764077:layer:nslookup_layer:8",
+                    "CodeSize": 4313595
+                }
+            ],
+            "PackageType": "Zip",
+            "Architectures": [
+                "x86_64"
+            ],
+            "EphemeralStorage": {
+                "Size": 512
+            },
+            "SnapStart": {
+                "ApplyOn": "None",
+                "OptimizationStatus": "Off"
+            },
+            "LoggingConfig": {
+                "LogFormat": "Text",
+                "LogGroup": "/aws/lambda/nslookupv2"
+            }
+        }
+    ]
+}
+
+=== USER_FUNCTION CONFIG ===
+
+aws: [ERROR]: An error occurred (ResourceNotFoundException) when calling the GetFunction operation: Function not found: arn:aws:lambda:us-east-1:009661764077:function:user_function
+
+Additional error details:
+Type: User
+DENIED
+
+=== S3 BUCKETS ===
+{
+    "Buckets": [
+        {
+            "Name": "codec4f26c862a321ef5",
+            "CreationDate": "2026-07-29T16:29:25+00:00",
+            "BucketArn": "arn:aws:s3:::codec4f26c862a321ef5"
+        },
+        {
+            "Name": "platform-bucket-009661764077-us-east-1",
+            "CreationDate": "2026-07-29T16:29:26+00:00",
+            "BucketArn": "arn:aws:s3:::platform-bucket-009661764077-us-east-1"
+        },
+        {
+            "Name": "site781fe43f26b9eba3",
+            "CreationDate": "2026-07-29T16:29:25+00:00",
+            "BucketArn": "arn:aws:s3:::site781fe43f26b9eba3"
+        }
+    ],
+    "Owner": {
+        "ID": "2faef32c0d92e7dab5b5ba4cf89b2b27c02c9e223cce8df1b955a9fcda231696"
+    },
+    "Prefix": null
+}
+
+=== USER BUCKET OBJECTS ===
+
+aws: [ERROR]: An error occurred (AccessDenied) when calling the ListObjectsV2 operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: s3:ListBucket on resource: "arn:aws:s3:::user1efd57991fd67473" because no resource-based policy allows the s3:ListBucket action
+DENIED
+
+=== VPCS ===
+{
+    "Vpcs": [
+        {
+            "OwnerId": "009661764077",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-0bdded0275d32c953",
+                    "CidrBlock": "10.0.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": false,
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "lambda_vpc"
+                }
+            ],
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "VpcId": "vpc-09328d3fa21dce320",
+            "State": "available",
+            "CidrBlock": "10.0.0.0/16",
+            "DhcpOptionsId": "dopt-044e3064394b23825"
+        },
+        {
+            "OwnerId": "009661764077",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-0a7661e9cee22c59c",
+                    "CidrBlock": "10.0.0.0/16",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": false,
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "codebuild_vpc"
+                }
+            ],
+            "BlockPublicAccessStates": {
+                "InternetGatewayBlockMode": "off"
+            },
+            "VpcId": "vpc-09d39837c916df970",
+            "State": "available",
+            "CidrBlock": "10.0.0.0/16",
+            "DhcpOptionsId": "dopt-044e3064394b23825"
+        }
+    ]
+}
+
+=== VPC ENDPOINTS ===
+{
+    "VpcEndpoints": [
+        {
+            "VpcEndpointId": "vpce-0f9cbd3ea3ba5f1ce",
+            "VpcEndpointType": "Gateway",
+            "VpcId": "vpc-09328d3fa21dce320",
+            "ServiceName": "com.amazonaws.us-east-1.s3",
+            "State": "available",
+            "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"AllowAllBucketsInAccount\",\"Effect\":\"Allow\",\"Principal\":\"*\",\"Action\":\"s3:*\",\"Resource\":\"arn:aws:s3:*\",\"Condition\":{\"StringEquals\":{\"aws:ResourceAccount\":\"009661764077\"}}}]}",
+            "RouteTableIds": [
+                "rtb-095413cd4b6bd6206"
+            ],
+            "SubnetIds": [],
+            "Groups": [],
+            "IpAddressType": "ipv4",
+            "DnsOptions": {
+                "DnsRecordIpType": "service-defined"
+            },
+            "PrivateDnsEnabled": false,
+            "RequesterManaged": false,
+            "NetworkInterfaceIds": [],
+            "DnsEntries": [],
+            "CreationTimestamp": "2026-07-29T16:29:41+00:00",
+            "Tags": [],
+            "OwnerId": "009661764077",
+            "ServiceRegion": "us-east-1"
+        }
+    ]
+}
+
+=== IAM ROLES ===
+
+aws: [ERROR]: An error occurred (AccessDenied) when calling the ListRoles operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: iam:ListRoles on resource: arn:aws:iam::009661764077:role/ because no identity-based policy allows the iam:ListRoles action
