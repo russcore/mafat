@@ -1,10 +1,18 @@
-=== AWS OIDC action failed, trying manual ===
 Getting OIDC token...
 Token length: 1896
-Token prefix: eyJhbGciOiJSUzI1NiIsImtpZCI6IjM4ODI2YjE3LTZhMzAtNW...
 
-=== Calling STS AssumeRoleWithWebIdentity ===
+=== Try account 186769093912 ===
 
 aws: [ERROR]: An error occurred (InvalidIdentityToken) when calling the AssumeRoleWithWebIdentity operation: The web identity token provided could not be validated. See the AssumeRoleWithWebIdentity documentation for requirements.
-OIDC FAILED: 
+
+=== Try account 121774052880 with different audience ===
+
+--- Trying 121774052880 ---
+
 aws: [ERROR]: An error occurred (InvalidIdentityToken) when calling the AssumeRoleWithWebIdentity operation: The web identity token provided could not be validated. See the AssumeRoleWithWebIdentity documentation for requirements.
+
+--- Trying 186769093912 ---
+
+aws: [ERROR]: An error occurred (InvalidIdentityToken) when calling the AssumeRoleWithWebIdentity operation: The web identity token provided could not be validated. See the AssumeRoleWithWebIdentity documentation for requirements.
+
+=== DONE ===
