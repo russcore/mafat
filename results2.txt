@@ -1,0 +1,361 @@
+=== SAME-ACCOUNT BUCKET POLICIES ===
+--- site781fe43f26b9eba3 policy ---
+{"Version":"2012-10-17","Id":"PolicyForCloudFrontPrivateContent","Statement":[{"Sid":"AllowCloudFrontServicePrincipal","Effect":"Allow","Principal":{"Service":"cloudfront.amazonaws.com"},"Action":"s3:GetObject","Resource":"arn:aws:s3:::site781fe43f26b9eba3/*","Condition":{"StringEquals":{"AWS:SourceArn":"arn:aws:cloudfront::009661764077:distribution/EKD9KH16RB5G3"}}}]}
+
+--- codec4f26c862a321ef5 policy ---
+{"Version":"2012-10-17","Statement":[{"Sid":"LambdaReadAccess","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::009661764077:role/lambdaRole"},"Action":["s3:GetObject","s3:ListBucket"],"Resource":["arn:aws:s3:::codec4f26c862a321ef5/*","arn:aws:s3:::codec4f26c862a321ef5"],"Condition":{"StringEquals":{"aws:SourceVpc":"vpc-09328d3fa21dce320"}}},{"Sid":"ctfPlatformAccess","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::009661764077:role/CTFExecutionRole"},"Action":["s3:GetObject","s3:ListBucket","s3:PutObject"],"Resource":["arn:aws:s3:::codec4f26c862a321ef5/*","arn:aws:s3:::codec4f26c862a321ef5"]}]}
+
+--- platform-bucket-009661764077-us-east-1 policy ---
+{"Version":"2012-10-17","Statement":[{"Effect":"Allow","Principal":"*","Action":"s3:GetObject","Resource":"arn:aws:s3:::platform-bucket-009661764077-us-east-1/*"}]}
+
+=== LIST OBJECTS IN SAME-ACCOUNT BUCKETS ===
+--- site781fe43f26b9eba3 objects ---
+{
+    "Contents": [
+        {
+            "Key": "css/styles.css",
+            "LastModified": "2026-07-29T16:33:33+00:00",
+            "ETag": "\"9a3cf798983325e360de6a89e1b12ea2\"",
+            "ChecksumAlgorithm": [
+                "CRC64NVME"
+            ],
+            "ChecksumType": "FULL_OBJECT",
+            "Size": 1259,
+            "StorageClass": "STANDARD"
+        },
+        {
+            "Key": "images/favicon.ico",
+            "LastModified": "2026-07-29T16:33:33+00:00",
+            "ETag": "\"8563f84d495ea5a1210299515f30d910\"",
+            "ChecksumAlgorithm": [
+                "CRC64NVME"
+            ],
+            "ChecksumType": "FULL_OBJECT",
+            "Size": 15406,
+            "StorageClass": "STANDARD"
+        },
+        {
+            "Key": "index.html",
+            "LastModified": "2026-07-29T16:33:33+00:00",
+            "ETag": "\"3c4b04d1b887432fce6419abd3881f7e\"",
+            "ChecksumAlgorithm": [
+                "CRC64NVME"
+            ],
+            "ChecksumType": "FULL_OBJECT",
+            "Size": 738,
+            "StorageClass": "STANDARD"
+        },
+        {
+            "Key": "js/scripts.js",
+            "LastModified": "2026-07-29T16:33:33+00:00",
+            "ETag": "\"d5207f9d93b10b65b649c06c62de6697\"",
+            "ChecksumAlgorithm": [
+                "CRC64NVME"
+            ],
+            "ChecksumType": "FULL_OBJECT",
+            "Size": 1405,
+            "StorageClass": "STANDARD"
+        }
+    ],
+    "RequestCharged": null,
+    "Prefix": ""
+}
+
+--- codec4f26c862a321ef5 objects ---
+{
+    "Contents": [
+        {
+            "Key": "code.zip",
+            "LastModified": "2026-07-29T16:29:41+00:00",
+            "ETag": "\"1959b058b9f998e6b568c4ceb0488426\"",
+            "ChecksumAlgorithm": [
+                "CRC64NVME"
+            ],
+            "ChecksumType": "FULL_OBJECT",
+            "Size": 469,
+            "StorageClass": "STANDARD"
+        },
+        {
+            "Key": "flag.txt",
+            "LastModified": "2026-08-03T12:00:26+00:00",
+            "ETag": "\"e5083a7e35a9696ea5726239f76597e3\"",
+            "ChecksumAlgorithm": [
+                "CRC64NVME"
+            ],
+            "ChecksumType": "FULL_OBJECT",
+            "Size": 16,
+            "StorageClass": "STANDARD"
+        }
+    ],
+    "RequestCharged": null,
+    "Prefix": ""
+}
+
+--- platform-bucket-009661764077-us-east-1 objects ---
+{
+    "Contents": [
+        {
+            "Key": "dotgit.zip",
+            "LastModified": "2026-08-02T13:23:05+00:00",
+            "ETag": "\"3843a2ad54842eb8c03f42c22187d35f\"",
+            "ChecksumAlgorithm": [
+                "CRC64NVME"
+            ],
+            "ChecksumType": "FULL_OBJECT",
+            "Size": 33734,
+            "StorageClass": "STANDARD"
+        }
+    ],
+    "RequestCharged": null,
+    "Prefix": ""
+}
+
+=== NSLOOKUPV2 LAMBDA GET-FUNCTION ===
+{
+    "Configuration": {
+        "FunctionName": "nslookupv2",
+        "FunctionArn": "arn:aws:lambda:us-east-1:009661764077:function:nslookupv2",
+        "Runtime": "python3.13",
+        "Role": "arn:aws:iam::009661764077:role/lambdaRole",
+        "Handler": "lambda_function.lambda_handler",
+        "CodeSize": 469,
+        "Description": "",
+        "Timeout": 15,
+        "MemorySize": 512,
+        "LastModified": "2026-07-29T16:29:44.127+0000",
+        "CodeSha256": "CFvxHj1Tj/ZdUahrJE3buoQSfAn8b2ytHDicjIhAioI=",
+        "Version": "$LATEST",
+        "VpcConfig": {
+            "SubnetIds": [
+                "subnet-0d86c3129f4405706"
+            ],
+            "SecurityGroupIds": [
+                "sg-0de9d1a2c42a08a3e"
+            ],
+            "VpcId": "vpc-09328d3fa21dce320",
+            "Ipv6AllowedForDualStack": false
+        },
+        "TracingConfig": {
+            "Mode": "PassThrough"
+        },
+        "RevisionId": "f62901db-4565-46f5-ad29-480c2d13867c",
+        "Layers": [
+            {
+                "Arn": "arn:aws:lambda:us-east-1:009661764077:layer:aws_cli_layer:8",
+                "CodeSize": 27364562
+            },
+            {
+                "Arn": "arn:aws:lambda:us-east-1:009661764077:layer:nslookup_layer:8",
+                "CodeSize": 4313595
+            }
+        ],
+        "State": "Active",
+        "LastUpdateStatus": "Successful",
+        "PackageType": "Zip",
+        "Architectures": [
+            "x86_64"
+        ],
+        "EphemeralStorage": {
+            "Size": 512
+        },
+        "SnapStart": {
+            "ApplyOn": "None",
+            "OptimizationStatus": "Off"
+        },
+        "RuntimeVersionConfig": {
+            "RuntimeVersionArn": "arn:aws:lambda:us-east-1::runtime:c45043813da1baebf5ac04edcaef1a67db184ee08f1fd2b4ce1642305ee9845c"
+        },
+        "LoggingConfig": {
+            "LogFormat": "Text",
+            "LogGroup": "/aws/lambda/nslookupv2"
+        }
+    },
+    "Code": {
+        "RepositoryType": "S3",
+        "Location": "https://prod-04-2014-tasks.s3.us-east-1.amazonaws.com/snapshots/009661764077/nslookupv2-170fa81b-558f-4c6d-88a8-ef2d2f6c2296?versionId=v8.8PDXzwvmFxqrls_.j2Q1yzFLJx7H.&X-Amz-Security-Token=IQoJb3JpZ2luX2VjECMaCXVzLWVhc3QtMSJHMEUCIChrZTqv%2F2TAdEmDqjcqHVBLkJl2rZtvSbWmE6ggOMmkAiEAls6mfSzJpTeHCXxTrHWMz0q3b6s12g7Vfyyg6BwtWS8qlAII7P%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAAGgw3NDk2Nzg5MDI4MzkiDEyZrbbq0%2FlFpH0xwSroAYxCsBVCdAkcik%2FsuuGndwBsaUX%2BN%2FGxFqAXWRj6jBYcF0LYCCK9D8%2FOsWODd2ZsaHWYyoTf2kQqEWMWdMIhOh6tBgGU3PLxOZI9j2DaWAVP7gxDFhv6TNiQ%2Fp0EnGQocsx0P1nrhxTAMNdH3Qz4uPhk%2FJ9%2BXgrqu4it4gqW0Gd1JqXYgCEEbZxPPj1iv1BosxN7eRVABuuQ2FN0BlHvhHGH0sz%2Fx9Rp7DdY8NyF4ma%2F4%2BykmFNbaYVCr0Z4z8KwTrGINJcIvrDK%2FwfuL14nqqbvttCWPzuMou902%2BSNTeEmS0gupWfj0SkwiIXA0wY6jQEJAqqNBd5T1Zdc1DAzTjR2RpoGpT6b88ja8jZggeh3CNiw6PxvTwwFcRtUzF%2FU2ifhsftIZbJV%2BhQ52OphurKHuFL9s4Hh%2BiHz1K2jlsQW0fWUoWKePdHcs%2BUBvRv%2BWEqHNdbC8SZ1zGdmjE57nRE1qEUgo9YOP5JOX3a0yjRR%2BAzzw1GV38qJ7I17ks8%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20260803T123755Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Credential=ASIA25DCYHY356VSIIBI%2F20260803%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=8e827fbeb65a6e2d5958ed617fdfd0adaf9c0c2b1ba7757a598c3e7a900af553"
+    }
+}
+
+=== LAMBDA FUNCTION POLICY ===
+{
+    "Policy": "{\"Version\":\"2012-10-17\",\"Id\":\"default\",\"Statement\":[{\"Sid\":\"AllowExecutionFromAPIGateway\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"apigateway.amazonaws.com\"},\"Action\":\"lambda:InvokeFunction\",\"Resource\":\"arn:aws:lambda:us-east-1:009661764077:function:nslookupv2\",\"Condition\":{\"ArnLike\":{\"AWS:SourceArn\":\"arn:aws:execute-api:us-east-1:009661764077:3q931syi7b/*/*/*\"}}}]}",
+    "RevisionId": "6345b496-38c0-4f9e-ac61-8bfe9ca9b44f"
+}
+
+=== OAC DETAILS ===
+
+aws: [ERROR]: An error occurred (AccessDenied) when calling the GetOriginAccessControl operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: cloudfront:GetOriginAccessControl on resource: arn:aws:cloudfront::009661764077:origin-access-control/E1UOO8R317GEA1 because no identity-based policy allows the cloudfront:GetOriginAccessControl action
+DENIED
+
+=== CLOUDFRONT OAC LIST ===
+
+aws: [ERROR]: An error occurred (AccessDenied) when calling the ListOriginAccessControls operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: cloudfront:ListOriginAccessControls on resource: arn:aws:cloudfront::009661764077:origin-access-control/* because no identity-based policy allows the cloudfront:ListOriginAccessControls action
+DENIED
+
+=== TRY READING PLATFORM BUCKET FILES ===
+--- File: dotgit.zip ---
+PK     
+’—[               .git/PK    ÷\¹Z7‹@   I      .git/descriptionÍËKÌMMQ(J-È/Î,É/ª´VHMÉ,Q(ÉÈ,VHËÌIUPOI-N.Ê,(ÉÌÏSW(ÉW éP(ÉHEÒ¤Ç PK     ÷\¹Z            
+   .git/info/PK    ÷\¹Zw=Í!®   ğ      .git/info/exclude-±ŠÃ0{}Å¹„³Ó¤
+¤Ê)töÊŞ iv…“æ¾ığán˜bÆcbCÒ.r"E×‰ÍT7 ×ÚH]¬’/ıÄvæå¼kçqçB
+›ƒA-TÃÊ6ãà•0HÎTL{çq“Š€¥Ê“Cµô\?a3!JJ²r™°JK#~“È%ƒDç±_±3ªEñÑÊ~Øñ–†5lBĞ”şıñËyœúo	~İPK    ]¹Z75 ÁP   \      .git/config5ÊÁ€ Ğ3LÑ\€IŒ‡*¿†¤XRÀÄí/yëa-G³^†ù#æ•ÇïÅ.J´Ä EQ-ƒŸˆagÿ ¬1¨¬êÙ2ô¿½PK     ÷\¹Z               .git/branches/PK    	’—[¬:=2X  Û  
+   .git/indexsñrf```b``àÊô: ©?« F30p0°zÁÀĞ¸„ùäXÊ$æ©í—¹{Éı_·_/?ïÿIœK/=³$3=/¿(•
+p˜÷Õ<Ş§­g¥Ìı7§å^¬Âò«®í­Û?èîcÖ+I-*JLË/ÊÕËÉOÎÖËHÎÁoî+4wÖYXpşYËÊËª:gKÃ‘ÔDÓ>Y–¤Òôb¼æ¼F5‡ÓAÆào[×î¶ŠÓuš>²Rı9ïbàLÏ,É(MÒ+I™ã*m$¶FCÍy‹æ4·ÜµÓ…YZ^-ıÈÙç˜é8¡ûd$ƒRNbnRJb|r~Jj|¸g€>”ŸVš—\’™Ÿ§WPI < ÚÃ`½ïQxªt_D|Q§Ş³¥ÓK”#›Øs3ó@®ÅiÎ/TsØ]î?¦ sBx3¿JPàKáëX1Èäçd&g¦ë'g&§è‚y•zYÅùyz%ÂaşoTó™jÎ}Ş¯9oÎ£æ?…]Æ·}úV/6¼WÉ Œj~IQiq	V[pÚóÕÆx>ÑSÑ¼sY['G[¬ø¤?öyæÄb‚¢ü²Ì”Ô¢bH à6ï/ZøNÒ³˜Ó+nü7ğëSñˆ	½F™î&¬<e‰E™‰I9©óB‚\]’Œ¸¦‡ì~ÍcPú’íÒ!Ã•.4¿$ªÂüÊ`¤`Àuæ¹A´–üK’^ˆŞp?³Já7Zâ`0T0àªlxaØâİZä¤¥ñ`ï´ÉÜÿod,Ş®®öGŠ}S_¨gÔ
+MÉ¹sôXÎ PK     gw¹Z            
+   .git/logs/PK     gw¹Z               .git/logs/refs/PK     gw¹Z               .git/logs/refs/heads/PK    »}¹ZÀæ»a  ’     .git/logs/refs/heads/mainÒÁŠ1àsç)tl)Û²Gv(ËziéKÈ–¼™ef&lŞ¾lsisšT'ÿ'1û
+¼J%o,KDÅŠ‹„*1I¶Á²­!&—½ƒŸí¸Â÷¦ğõµWiúÌ½uçë¦<—¶œx½~)myK>Zò>¿‡|(mY¦§uêÏŸğãÖÁm2ìVXRŸĞ	jjˆ¾Œ”­ŒÑ3Ö@¡TG‹Ñ<ÎÖşË= ‹¨ÀËÔ—¥­«–Ş6àU`k³Bm”©È°[eñÖ9kÓX$'BªÕgŠTQFb/i,ÿÁ‘îøßşğõí¤Û´èÚy†_¼da(Mnúå
+çËI78kÙ´Ãik¯Zú°Ûé7èMªˆQ	£¦Vá*JZ9IrâÈ?~Ğ˜\¸;¨No*//çawnÊLI0†˜ƒ³æ€ÁWÊ†	Æà|4ò8ìİà}s¾şå„~œÎĞ§E‡ßPK    »}¹ZÀæ»a  ’     .git/logs/HEADÒÁŠ1àsç)tl)Û²Gv(ËziéKÈ–¼™ef&lŞ¾lsisšT'ÿ'1û
+¼J%o,KDÅŠ‹„*1I¶Á²­!&—½ƒŸí¸Â÷¦ğõµWiúÌ½uçë¦<—¶œx½~)myK>Zò>¿‡|(mY¦§uêÏŸğãÖÁm2ìVXRŸĞ	jjˆ¾Œ”­ŒÑ3Ö@¡TG‹Ñ<ÎÖşË= ‹¨ÀËÔ—¥­«–Ş6àU`k³Bm”©È°[eñÖ9kÓX$'BªÕgŠTQFb/i,ÿÁ‘îøßşğõí¤Û´èÚy†_¼da(Mnúå
+çËI78kÙ´Ãik¯Zú°Ûé7èMªˆQ	£¦Vá*JZ9IrâÈ?~Ğ˜\¸;¨No*//çawnÊLI0†˜ƒ³æ€ÁWÊ†	Æà|4ò8ìİà}s¾şå„~œÎĞ§E‡ßPK     ÷\¹Z            
+   .git/refs/PK     
+’—[               .git/refs/heads/PK     »}¹Z-Ê•¨)   )      .git/refs/heads/main9ba50c9273858b546beb5354f7b0a97d3852480d
+PK     ÷\¹Z               .git/refs/tags/PK     
+’—[               .git/objects/PK     {¹Z               .git/objects/d7/PK     {¹ZõêWç>   >   6   .git/objects/d7/b16caeb3e5e9681d85bb3eb3fd321b1387120dx+)JMU01c040031QÈIÌMJIŒO+ÍK.ÉÌÏÓ+¨dğ\afYæÃ^<5ûÙ!?«h‡éjÁ ÚÑ~PK     ÷\¹Z               .git/objects/info/PK     ôz¹Z               .git/objects/49/PK     ôz¹Z%ÆŞá  á  6   .git/objects/49/a83639764c0773956be6c24e3a5b4097402653xeRMkÛ@íY¿bp’¨­JI0øTb0„6”ôfkíØZ¼Ú»³NDÈïH+;ÕE£ÑÛ÷1³;K;¸ûqûÅ´y†w§CÈ¦¥ÃÁ¸C–zXÁÔ©Èc¯(§ŸUĞgÌæ×úw™e÷à£{®©m•ÓÅô.—ÈÃ¾OÅğ‘d*ãöTÌşDçDBƒÖÂtj	ÛÙÛûv6«öä[Å¶rdH<†hY¼~ä©DÿŒœ'ÂÕ“(5kŠ¼º‚>nï?È>9ú™€œè"/·n±XlØŠ‹£¤_%æJcM‹üïÓzq——e¢Æ×;†ûñeÈ
+€ÿÍ½'_Ì.¨%¼½_dp¢J‘9zkefã <!dÚ€UíN«çF6`Ñ²(Çs™ªc|åi7°ÉOJkÔ Àª^vÎÜ <Œça]ÍƒanƒqµÃˆP/¡¶:UÕ«ÑÆ<5&€²–^DÒp>ï4€5G„\ |ÏA5Û~²cQ”$xVÖph”$Èh=òYm#‚Ø
+,’":=DÿßHæ˜É÷¹N…îd<¹Vf’˜FóšZ%¸ŒÃ®|‘§^¶x}«s,Ñ1v9|…„*³*·—PK     fw¹Z               .git/objects/85/PK     fw¹Z¤_Ül‰  ‰  6   .git/objects/85/fd9a649dfe9c84de5d20a7d5458785b7f02dbex­—OUÉÅ³æS<õ,5år¹\5Ò,%HL˜(0¢,ÊU6ıDÓ^7ˆòİsn&‰ÍHA Ô÷¯Ë>ş·]ŸìÀ"ú»ïO¯·‡8^ûÿ¿Ç›;üóuïïNoÆİqëëOût¸¸óóyÄéüæp¼9Ş]\Şûîğó¸y?®¾wÛËxÎ×§Û;<qˆ÷wïÏ~xÿv;¿½¼wïíùôá¸ü|¸8û«ãíİùÓå¯!/§ûWãöê8Oç·÷Çy^?øÅá_÷‡~¾=nÛŸùR/Ó®ÏÓbl	ß~u}ãÛ¥¿ã¡ÃáâŠ¾ñúù»òSÌÓƒ¿¥ÇåÇşêêöõËg_Ø‹Ïıõ:¼{÷ËÃóƒ'©>ûáâ_^û|õ}*ÙÜæĞ¨Uõ‘8sáá>Wæ”rÜrv)ÕkTj‘Ë,Ñğ†îB‰7¢’¹y–YÄ¢IÈìQ³¼Ò,Ö[x)#5Vg]¥‰ÆSmµU‹´b“–•É=[¦Öåxxu3zÕ‰ÄØ»õÌ«"@õ¥¥/û*T×ÚeXŸÓYh¬è4¨áĞki8RZ™:q¡\<Ÿ¾?÷A±ËJÛ÷X«{éeyLã‰/ç–­!£ÊIRcfZäƒ*…ğ¤h¥±ñ>”ãuÛËácµX$j’FVzäàp\,c²‡Dï4çˆè8+å´Õ’"’˜J§dAE»D‹PòB–jyæ’‰Ér¯e6ÉÊ”Ñ{Ù‡Bâ
+NTi²Íe”Fy!b1¶r%MèOmixi_ÉÜw¡†®³A/¦ĞQi³´¼¨Y¹¶1–4FñpÊˆ˜5dX]’–º¯•A>«LêG2x®OË³Do“ÒJ”{k<ÛÌ£Ï”Jï£/×Äi/†…\p©Æœ	Zèø0Ee´
+n(bÌÜjª(]ƒ–¼„m5Ê[r³ùî€ZyÖ
+«©ÅÈ‚î@à‘Ó4FXŠì—Ú(“5ÌuµFÿõ{ÿşMÌøçí7y!—/éÀøßoãÃ£›‡?ÿñ]?ı|+|ÿø{}ô¬]½|õæéã«‡qóª=n¯íıƒÇ/?>yô1˜8C×ÚĞéÊ
+m•E˜rÃlpô ÷I6u@«-
+è\QmÌÍ¾†” C1 Ô9 ™”¦PmˆæËî©Öb§“iACĞ[Æû~
+HÅºA¥)™o/X{KÕ’§´¦ÙrªíL¤³tVÅÍÊbo»ÎÒl H“ÒÌØÂsÕ¥¶,±·VÒöLS^“$÷`­	""Şg•3ƒ+©ÛpÈ 2¯K	ü)¤êŒo¬!\Â!¨Y f®«Ø’¥c—UÏÈ’ú,¼¥l.(ºH¥TQõhÒÂä ™Š’¡<ZT÷¡]nKÃKuøZmip N4Š•ìPòeÂĞÂÉ¤aÎJŒ’÷ÄèS35 1æät*É	únƒ¡}_%ÆÉ†ä@SŠô‰zëu/ÒwWQŒS¥Tµ`ZìO%5oÑR‡pA”¬f*%-^û²Û"T‰AdØWH««òD"Œşs®`iÀ¤lVs·m¼Í¹ú¬€ZlW«9²AÜ+eÜİÚ¨ƒ‚#ğ	(ŞGÎıè,	&ÊBÂ,sEÂ»P«ùÖa--U¥¡9«Â¼£~\ ÚÁ}S_¤%mw1"'°¾ƒãÀÈ¿PŒ¿S¢4œ5ñ{¬´ƒ\QFäW ÄŞ+˜”wYEíM9Âp²4i·2ºÅøÀÀ­š`j°¾ûuÌÃ–®š@ñ=ó£ÃBºÎ$í¥Kq˜?¼×q‰­AÀx³0‘æ^&ôª¡-¤ŒãK¨ßˆÄó¸Y§7ß¤"_ÖKş½ş&>¼>û‡íöeûñù/×áç7ı§ÏüùÕÕ“?=}ôçW:¯ÚéùÕÇ›ÓWL„=Y•L	–áEÒ¹J…ù5Y ~Àú£p‡×@}ò„uon%_Ì {²y@ı½oX[T–À¬âÀ»
+Ltñ²Ğâ:‹“³etÔ'onúÈ0Ç“°6„˜}÷àêyÙ¸!\P¦&XÄ2¸ÜVÓäÂšÂú±SÉ6øXé (<É sƒÈ’ {“äÈ@¿†]a&,ŞÛ„W¶Ê]l@AMRË»8­tOØÆ PĞ›•…“êÂ*øhFí 4|+ïAÀyzMd
+X¡RØ0kÅ„ñv…ÈlË›l	fÆ&	yÎ›áìøÜí‹CQ\ğ•
+g\(gË’˜¶QV‰KéÂä-X*ö¸¼x%7Àd'V:‡>±ä$ìÀ`x,ªÀ»f£­ÛZE0UÔJ{R{êğ_¬»£cÑõföGa›°€jlçµÑâ	[g.Ø©â[ei'‡bIõåh ­m?Ïˆ=°Ò×ÓPƒRXæVT4¼jË'Ô²ï ğŒß7@¦ [øåÃ|ê48’"öUEÀ04Ò®Àxˆy|©Õ†Œÿ ¬PÄPK     fw¹Z               .git/objects/08/PK     fw¹Z¯~J    6   .git/objects/08/a50216492b4e69ae0ba4dffadbeba7cf4ff217x]S=oÜ0íì_Á"›qõ¥ct
+2ÈØ½ĞIôY9hˆ’/ş÷%eû>º‘ùøø}t€ŸÏÏ¿¾=ÁY Ë˜’é)Áù„6SòÈMÛîo/û¶i¤²çl2BïƒVlù-êjİk2<@ ãZh5ï$o–¨­± ¾}ÙP‚	J£ŸLâ¥e—ÁÛLBş„a†L`)fã#0FöÙOÎd³.ZÊ8æ%·ƒ1ùI©pæ˜è€ò€IzmÂÌüx DÊp@iO¨‡	{Š ˆ:3Qxş¹2Ò©0’™ïx”1f/»Ìwu2—Ã§èªpºÅ`âQ¨ãˆÑùx$Ğ€qò‰âY@ºª¨ÊqºO¦¨&¼#‰*$“íªô
+—J¢0:x-MÈT’EoÄyáYÙ‘ ªĞ*‚Ğ¤ÍÇfkcîã…Hû÷şù!ûŸiNFì’­têI{ZI‹b‘ƒƒ¸{½A3ann§·™ÜŒ=uÚ]UˆËål,VÄ™
+8‚‹—û“Í«lvn^VÙ#ëôÑd™E„ïøeÎcÀ‡İTòuXîÇ`â:Jàıb…šW¨ä±Ô²t>‹¶/w{ÕŠRò{ÜuÜ´Ë§úó¬ş¾~¼ëíõşX’ÉzŒËOw&ÙæªZ'‰­„Lli;¦[²}ó?ƒfPK     »}¹Z               .git/objects/9b/PK     »}¹Z°ÙÑ/²   ²   6   .git/objects/9b/a50c9273858b546beb5354f7b0a97d3852480dx¥NAÂ0ãÜWä„Ú4]W	!œøE¶¦lh[§Q$ö{Ê°,ÛÊ!vŸçy,€>”M‚wÔuB®Ó½ÕŞIĞMÄ­á@$ˆ!QcĞ©•7Y
+’¶¤C²¶R¼mM«SŠœ¢xIbÀˆ¿Ë7¸ça[8?kŠY®\ráiÚ7á©ÏóÊË~ª~ã©5Şgá¨+T½Ö­Eşû¢~EÓiüH„îıxAÆ*ã,êgGT^PK     ’—[               .git/objects/46/PK     ’—[(·O‚ê  ê  6   .git/objects/46/6dad97130484eaa5f1098e416b6941908bc959xeRßkÛ0Ş³ÿŠ#}°Íw°‡•@F²•‘½Šb]lY2Ò)­)ıßw–·e~ñùüéûq§£¶G¸ûñí‹êzë|8öÎÖè}6u´meš,t°©S5H±W”ÓÏÊs/¨‹+f÷kû»Ì2‰'pÁ<Õ¶ë„‘Åô.×ğCnHÅø‘d*eN¶Xü	Æ°8øµ†éÔ‹×·ÃbQ¬ëÍledIú ‰½¾ç©XÿŠ\&ÂÍŞäš¤´ù }Ü=Ş¿“}rô3% >ÑZÌjµ:¶3³£¤_%æJbm%ùßıvu——e¢Æ—{‚ûøRÖ€ğ€ÿÍ³®XÌ¨5¼¾Í28Q¥Èœ­Ğ³8‡±3†LĞ¢;JñÔò4º‚ehÉS5„/4íâvùAH‰h1ğÎÉµñ<œ‚©i4L­ P¦ÖA¢ñìk­ õY4XE7°o•¡µ}öhÇ»ğy§´:#äL ş{R9¬IKà³"'ÁYXhEì œ 'V¶¡i	ì	¤«ê½y¶ç‰¥9L0rŒÂ9n-Ï=)X70$v§th.ÊYÓñlS!m'·8´ñêyêåi›ow>
+Ü¯­=‡rø
+	[ş\"|PK     ô|¹Z               .git/objects/3e/PK     ô|¹Z}qÃ§Ê   Ê   6   .git/objects/3e/2a9977e6f84c6dc43a0c05fc7932d91b78e1abxÕR»ƒ0ìÌWXYB¥`¦ª*ßÀŒ"1Wâÿ·CÒòØ!cŸïìØÊü^fz¾7º:]™ìª2ÚùÆe[Np>›pcJ&Ñ1wÏS•å°4fV~¿sùP¹#/>CNdƒÁÍiÉMèîĞªÀl©C/	:>gÈ5‡¼²]ŸG-÷zrµ8Û‹ÓSu±\ 
+It2–¾÷kÖ³õB¬AU<?Om-Ã#ã8Âæ| Š”6>!(lB´Õ_xéPK     gw¹Z               .git/objects/56/PK     gw¹ZÍ*]‚§   §   6   .git/objects/56/e29f0c3e9bcdf5845efa6909ee8773e92c7b08x+)JMU043e040031QĞKÏ,ÉLÏË/JeàXÊ$æ©í—¹{Éı_·_/?ïÿI¦ª$µ¨(1-¿(W/'?9[/#9‡¡õï¬”¹ÿæ´Ü‹UX~Õµ½uûİ}PåEùe™)©EÅz%i|¢§¢yç²¶N¶XÿğIìóÌ‰ÅPue‰E™‰I9©`u]Mw­$Ï\ŠpáÍ¾:ó°AXÙ–Å< ’EPK     Ny¹Z               .git/objects/ce/PK     Ny¹ZÅ¸Ò¹4  4  6   .git/objects/ce/f3bf299e9ce283fc718a33db4c8eaba331de79x¥PKK1öÜ_Q‚§bwÛ
+r[¤‚àA,Øƒˆd“é6t7Só°hÙÿî$+…µ=’Ì|ó=ÊËáüz~q©Ø3X§Ñ0>d³Ét6NÆÓvÕ5—^xhÀxj¿¤¯ˆéñ‹-Ökq‚uûl×¤ö£ÕFê¨i¢Lè;P`‰EÅÂ.ökÑp~yRb0şM«–£Vr¼³ø¡i>÷¸“	éIºË*í7¡¬DãIn&±aG½‘§íU	9w¼p.4ğ„5¬hÕ
+Ê{E[´ÿümæÒ‘ô¼™¥'³Õâ=ˆÚH–ÿ ‹!q™hÄŠåÔÕg‰¡Óñ ·ğ?.”1";ä£|Ä-¬ãqù„r¹D[é~ÎIQ?ùã«M·×A;øOLª®PK     C}¹Z               .git/objects/42/PK     C}¹Z€ƒ…¨   ¨   6   .git/objects/42/403409f33f33e738180ffdafde7efa9d92d274x¥;Â0D©}Ší‘PüÁKQPq‹µwÍGIG‚Ûã;0Í½b4©Ìó³qv×ªÉ[K¢9y64"{3z4;>FgêlCt¨Vª²4ŒMì´1Z“>qh1gqÄlÙ#9î^ÑÖ¥Â­<¸Ó«7.r¡VMÓ·
+M©Ì+-ßCç4ºQ£æû¡GuÛ¿6ùoEåçGâv«_±NPK     Ny¹Z               .git/objects/be/PK     Ny¹Z×8x=   =   6   .git/objects/be/e257654f5b8e585f72892ee6a5977400235983xKÊÉOR0µdÈÉONÌ)V¨æRP(ÈÏÉL®LÍKQ°UP
+ÊÏI (¥Š€<„LJ‰«– Ó"rPK     ®}¹Z               .git/objects/38/PK     ®}¹Zøk@÷   ÷   6   .git/objects/38/3809fcad050d05259c900480c4656135800e1dxÕR»Â0dæ+L–”„…*¦J ÁÀÉ¥¢‚J@ˆñí8-…<€§jìÜùj»ÉöeÃÑ ¿,¶Á¸mGÿg\Åí¾÷†J2›	ğ™òLWÕĞ”BTæUm¾àK¾RA£~ıplb(éHNg³e˜WÑSª¡o`HqNš6‰N` ¤ƒ{âõõˆ°¥"BÁ¦áæ;Æ¥P”‰w¾¬¶·<Å&nŸtÌ‡©fÛ´‡ßìÁbL–rn`x_İK#Eü±”°8]‹Ë.ß@vİÂ9?¬‹ãÅK¥ßçXßÇë²RN«ı òlŒíPK     3}¹Z               .git/objects/2e/PK     3}¹Zã‰¿éi   i   6   .git/objects/2e/389c8d1733fd51f5e5201758908d3269473405xKÊÉOR041c(K,ÊLLÊIUP*JMÏÌÏSR¨æRP(©,HU […â’¢Ì¼t PJjZbiN	PH©´X75±¸D×P‰«–a@r~JjRifNJ|YAr|^bn*1†¡è Ø…11PK     gw¹Z               .git/objects/4e/PK     gw¹Z®é <Š   Š   6   .git/objects/4e/df7401ad8335c1d2873ed89db151a1f5892b42x¥Á
+Â0D=ç+ö.HÚ4ME<xÑ¿Ø¦ZI»RÖCÿŞ?Áa†w˜É¼®‹@“ÒIv"ğ=µ©Øì(y*>v
+öÉ&¢‚â6‡ÑFƒ™y‡'ÏÜ™`xi›˜n(,Xë±ÖÌë·ã¢y…&tQí¼ƒ³U¥ú-ôßŠyl‹,Xá7g¾•qCPK     »}¹Z               .git/objects/37/PK     »}¹Z8ø)G  G  6   .git/objects/37/f3218cf3fbfc104eeb47038f8ab55a1fcb7fddx+)JMU061c040031QĞKÏ,ÉLÏË/JeàXÊ$æ©í—¹{Éı_·_/?ïÿI¦ª$µ¨(1-¿(W/'?9[/#9‡¡õï¬”¹ÿæ´Ü‹UX~Õµ½uûİ}PåI¥éÅœÖ²ò²ªÎ™ÀÒp$5Ñ´O*´3£4I¯$AÆào[×î¶ŠÓuš>²Rı9ï21 …œÄÜ¤”Äøäü”ÔøpÏ †ësÖm~ú2C¶u·İæ¿FÒÂíB¼Pãr3ó@†í{êİ_Ô©÷léôåÈfˆaù9™É™©ÅgDkÉ¿Ô(ù±Qà…è÷3«~CM)(Ê/ËLI-*Å'z*šw.këäh‹õŸôÇ>ÏœXUW–X”™˜”“
+V§g1§WÜøoà×§
+âz2İMXÊ_ˆCPK     	’—[               .git/objects/79/PK     	’—[¡è?   ?   6   .git/objects/79/80e831844b8572422a28e0bd96930bffd868a3x+)JMU01c040031QÈIÌMJIŒO+ÍK.ÉÌÏÓ+¨dpË];]˜¥åÕÒœ}Ù™ºOF æ®PK     fw¹Z               .git/objects/0e/PK     fw¹Za€ùº¯   ¯   6   .git/objects/0e/15ca5b0d9d0585935b38afe1e48f5de7699173x…Á‚0†=ï) :Ô¾ŠPe‰0ìdïîÆ4r ¡·æÿú¥my·%¨\nÄ¬¯–[x ¦Ç`˜ê‹'vÆvP@v.@¢Üeó¸gëM˜i
+@¿\@£!–³Wq¸Ñ®1•å~¨ˆ5“çxR(S0N±æª1Vu	[PîñˆÓ¶ ÉÈº«m»&LÔ‚OáÕÃQŒBüî‡,õ}İ-=ÌkF¦ØòÄe«PK     {¹Z               .git/objects/02/PK     {¹ZEáP³Ç   Ç   6   .git/objects/02/3cd412211a396cdb9737ff4b787f3d67a4d96cx¥Mj1…»ö)´yÆ¡4ĞUé%Y&	ãñà8Ğ¹}u‡j£Ç{âñ‰[­÷ÓbßF©,³`(âS\fô)Dï"â½
+³S—m€â–yÂì‹OC¼Ú’£¹è—‚z[ëğİn|5óCUnòI£Z×£­ÜêNÛñ®ûC«]²Ñ§á„:F]eò¿sÉY2Èï.ı^õZá‡ê5pËE)ëÏ—æğî2`ïí!<ÌÕç_ PK     {y¹Z               .git/objects/cc/PK     {y¹Z¸yÁ`   `   6   .git/objects/cc/e7305b2a1fe92874f8b110e815d847ccaa20fbx+)JMU040b040031QHÎLNÑ-ÈÏÉL®ÔË*ÎÏÓ+)ÈaX¸ÿ˜‚xÌ	áUÌü*A/…?¬?`…¬¾¤¨´¸C×¹Ïû5çÍyÔü§°Ëø¶OßêÅ†÷*jê+†PK     ôz¹Z               .git/objects/13/PK     ôz¹ZAÒ/Z>   >   6   .git/objects/13/5350f5acd489e2c751f803c499f1c133b91b09xKÊÉOR05aÍP(ÉHÍU(H-Î®TH*M/ÖQ¨Ì/UHNÌSÈK-K-RH,ËÏL(	%í¹ ’[%PK     Ny¹Z               .git/objects/a1/PK     Ny¹Z7‹1Õ    6   .git/objects/a1/bfc620175cc813aa030f245251e913f0afc03axµUÉnÛ0íÙ_a9Í"hİÔ,½¤E`¹FAQ”Á„"]RŒáú÷r¨Í¢iÃ@Q$Ï›7Û›qÆe6¾|Š>l'Sû ª4“ÅS4»fÑõEô}lŒi…+ZRQYóO÷ø4ğJYŞ=6j½³Ü%@ÎåÚ7'¤j"ô®ú&>÷ğ.&Çe–ã°¯ØÒ¦½Æ›°á2l d6.M^()*kïÛ ‰,šFõùÎ©–F
+Åú‰£[)rÖÖ:î¡«)­Ëûßsmı÷…×:N]Œ—0gÛ÷©Çi²%:|ÕCÊã{ƒœyÿÇA>2]}5äV¯«ËN V!ß7J€}£-Í“äŒlNC:M±•0ÂiñÎFï`¡È-›EÎnÀtLV[…:†AgàA Í;ª‰bõuå ;µ±ïl1jÑí ¡î]¸F“‘p(<°¯şzôT§«îÆkëÉªC°ØOXë¹äÔ'ùÿ‹ÙE§ù³L©zgî
+ì÷ÈfÚÈà—øv­/‰,½´;l3b™ÓÌ0{.}wÑŞØ::ı|T˜(ñÈŞà¸/GÏ=H´–„Ùœw=Oæ?¬Ë‘N`%bH¬]Œóøl‹	‘FT¿X^ÇE»–ÁãÜÇîHH×¦ØçY)ùjÿˆ®<‘v‹½FG0ÃWó¶˜Ô“¿-–¤¹PK     Ny¹Z               .git/objects/1c/PK     Ny¹Z§¬¶i    6   .git/objects/1c/30fd868abb8678cb7e294c1d891a8f6ceee1cax­UÑnÛ0Üs¾Âú°¼th×—|ÉP²­6ZmËämßQ”{©ÛbX´¶HÅã‘.j[d7?îî¿Ô¶TµÏ‹,+”×²4•Ë6Ùrı]Äß|}·„­ë‹Ú”Ò÷E«ìäŸe­j4ı§ ö _œë½,Lğ8¿ÇÁ‘ œÙ© ßE`—Yİª¢Ö²UA>j¯^(WúÙdÁõ‰¼iŸ>ö²íHvÚIõzÂz'Vš²"[c¼7¶õ²³ áEv*l©è«=‰ÆV}­y´ísŠ‹V ~{ÛŠĞÕT\Åm}˜ÀqòOÆàYhgk}j½€²Ø'`Sî«Clº “n«#*‹®9²éÂu «%”ãbq\T*¨l©ö^BY5x5•nƒ	/K¤ïÃË2;À•YÃ¡­tÑ›ºJâªªœ‡uÓö®dE~p³­ò[SZ×å¬Fb»r”~§u)u1ªrM*&ÛIÜ²@õÏà‡I8ÃÒŞ[÷L²ı…×,¹L´=6L4ÃÊ£¬]WN«AA;§­kV`jÅTø9ŞÇÅÀ÷V¬RtEêä&Û)'Î´!*¶ö4¾Œ7raª˜Yqª™¹ \õêO´Ñ`~ÔëÌÓé½Ÿ"Q×	gñ	p
+%¨ ‡˜b¼apÜàŸSŒ¡†¨bfR¸4#ff1—fÄÌ,—!æm3u¡Ò¦ÌKhxà» d"9£ùdÂ¶/¤5U);gw˜>÷Iõ!œÔ—çœÔç8X1ŞŠğV'<$†-êóöFÜ,IüN§‰€îÃËƒf?îÒ¸?ù>IË¬³h¥$F‹iÒ’™q"+Ç1 -è¦«ñqx4µş:
+šÙá×éC†	ä¿É.(‡UĞŒ)×òø«²´}°Ù’öxcİ‰´ìÄÙ7=~{›&*} ‰ŸiıÍPD<ñğQŞ÷–ñìC.>;çKş×’†/œ
+A•Û&î~VÂè¾rl¥²“À7.CÔ…$F2p€7!¥î½é}ã93aóø©Ù)ÿyãèı,Q#]PK     	’—[               .git/objects/97/PK     	’—[¥„b£G  G  6   .git/objects/97/54bbe45b0c3075e906d2c231a944e229f46125x+)JMU061c040031QĞKÏ,ÉLÏË/JeàXÊ$æ©í—¹{Éı_·_/?ïÿI¦ª$µ¨(1-¿(W/'?9[/#9‡¡õï¬”¹ÿæ´Ü‹UX~Õµ½uûİ}PåI¥éÅœÖ²ò²ªÎ™ÀÒp$5Ñ´O*´3£4I¯$AÆào[×î¶ŠÓuš>²Rı9ï21 …œÄÜ¤”Äøäü”ÔøpÏ †Ê††-Ş­ENZöN›ÌıÿFÆb¨q¹‰™y Ãö=
+Oõî‹ˆ/êÔ{¶tz	ƒrd3Ä°‚üœÌäÌÔb†3Ï¢µä_j”üØ(ğBô†û™U
+¿¡¦å—e¦¤ƒŒâ=Í;—µur´Åú‡OúcŸgN,†ª+K,ÊLLÊI«Ó³˜Ó+nü7ğëSñˆ	½F™î&¬ ÙFˆ†PK     Yw¹Z               .git/objects/4b/PK     Yw¹Z«:à       6   .git/objects/4b/825dc642cb6eb9a060e54bf8d69288fbee4904x+)JMU0`  
+,PK     {¹Z               .git/objects/2f/PK     {¹ZæİSMI  I  6   .git/objects/2f/93e06fe500f0aca799cc0550a6754700275754x+)JMU061c040031QĞKÏ,ÉLÏË/JeàXÊ$æ©í—¹{Éı_·_/?ïÿI¦ª$µ¨(1-¿(W/'?9[/#9‡¡õï¬”¹ÿæ´Ü‹UX~Õµ½uûİ}PåI¥éÅÂÁ_×\é|t<ğó‘™ï”æ„ÊíÌ(MÒ+Ic1øÛÖµ»­ât¦l§TÎ»‡§L€@!'17)%1>9?%5>Ü3€áúÆœu›Ÿ¾Ìmİm·ù¯‘´p»/Ô¸ÜÄÌ<aû…§úG÷EÄuê=[:½„A9²bXA~Nfrfj1Ã™çÑZò/5J~lx!zÃıÌ*…ßPS
+ŠòË2SR‹ŠAFñ‰ŠæËÚ:9ÚbıÃ'ı±Ï3'CÕ•%e&&å¤‚Õu5İµ’<s)Â…7ûêÌÃae[ó  æ;IPK     ÷\¹Z               .git/objects/pack/PK     {y¹Z               .git/objects/ed/PK     {y¹Z9q ¿    6   .git/objects/ed/2ad58e6d4e284c4ab8b1f1b109328b0e8826c6x+)JMU027b040031QĞKÏ,ÉLÏË/JeàXÊ$æ©í—¹{Éı_·_/?ïÿI¦ª$µ¨(1-¿(W/'?9[/#9‡¡õï¬”¹ÿæ´Ü‹UX~Õµ½uûİ}På@33J“ôJÒdş¶uín«8]§é#Û)ÕŸóîá)¨¢ÜÄÌ<’}ÂSı£û"â‹:õ-^Â Ùlb 
+ù9™É™©ÅgDkÉ¿Ô(ù±Qà…è÷3«~CM)(Ê/ËLI-*Å'z*šw.këäh‹õŸôÇ>ÏœXUW–X”™˜”“
+V×Õt×JòÌ¥Şì«3„•mYÌ WPoåPK     C}¹Z               .git/objects/0c/PK     C}¹Zlêô0H  H  6   .git/objects/0c/633ae1dc6d2a87d6286691d4d5b42c71f39b47x+)JMU061c040031QĞKÏ,ÉLÏË/JeàXÊ$æ©í—¹{Éı_·_/?ïÿI¦ª$µ¨(1-¿(W/'?9[/#9‡¡õï¬”¹ÿæ´Ü‹UX~Õµ½uûİ}PåI¥éÅvZ3ËŸığÉ=bÅÃú§Òè¦tÅÃÕPy ¥Iz%i2Ûºv·Uœ®Óô‘í”êÏy÷ğ”‰(ä$æ&¥$Æ'ç§¤Æ‡{0\ß˜³nóÓ—²­»í6ÿ5’nâ…—›˜™2lß£ğTÿè¾ˆø¢N½gK§—0(G6C+ÈÏÉLÎL-f8óÜ ZKş¥FÉ/Do¸ŸY¥ğjJAQ~YfJjQ1È(>ÑSÑ¼sY['G[¬ø¤?öyæÄb¨º²Ä¢ÌÄ¤œT°:=‹9½âÆ¿>U˜Ğk”énÂ
+ ÕQ‹ˆPK     fw¹Z               .git/objects/8a/PK     fw¹Zµ}uïM   M   6   .git/objects/8a/82dd3a19ccd258440d6bd599c3305676b4a30cxKÊÉOR03e(K,ÊLLÊIUP*JMÏÌÏSR¨æRP(©,HU […â’¢Ì¼t PJjZbiN	PH©´X75±¸D×P‰«– I”PK     {y¹Z               .git/objects/17/PK     {y¹Z·Ã¿Õ¹   ¹   6   .git/objects/17/e49320d5e0f584c67b1d684a3f575cf4861380x¥;nÃ0DSóÛ0´üˆ+ \¸Ê-–Ü•¥@"‚.|{ó™f>Åàåz{İWoª bYé,^-ùì9QÂN‹³”&%²sÍ“›–^e~Br.dKÑ©Ğ"	2®›¼5üê[mğ[·÷ªğı7’T½q¯ãİ”\Ï'—÷uø`ô„1 :¸LCf¬ƒµëÿ^‹¨ÀcïÛ+A®¥hîƒŒ‹@«‡Â:JŞ³˜¤şYšPK    	’—[#Âª5        .git/COMMIT_EDITMSG]AKä@…Ïö¯xĞJŒãÎeQô¢(È²G©¤+Ikºjè®0Æ_/—eñXõ}ïUfÇ]üà€fêlˆ;ç±™
+ƒÅ8ÃF«)ECâR¨gtš1ë”Ñ$=—
+Q¸ e‹Ò;}´Çşû8h±ÍNA@N;›ÿ©Ñlå?Wå¼ó¸™lĞ¼€wÊ¸|ÓA‚ò5™ÚR#3­¦É\µš®œÇ®€—IğD3Vkœ¯6¿Ö›õVõj“º®ëƒåYĞd’v@¢(Îãö»L—äßŒÃÆù£¤!v‘ÃB_÷c5Rj½¶øõÏıöìïÜMÒZT©vóÁø[,SûÎ]¹,à ÖG«>ãÎy÷PK     ÷\¹Z               .git/hooks/PK    ÷\¹Z’Äø–L        .git/hooks/pre-receive.sampleuKOÃ0„Ïö¯œˆ> …r¤
+â \(é©rÓ¼4±£ØmAˆÿœòâbÙŞùfw698Y²=ñF&2Á¥=ëº©Æ¹5|Ñrj½&l<Á•h6ŞÀ5õc™ 7ô…y®›êTGºª~©ŒğA·;½(\êbõdmWhé‰Šğ’ÇÎE0µ/ªŸ`çZ» ¹Y½¬Á°ïB£%«ëŸ’cÍA5-Z*ˆ·¤ÆRr‰@>`d¡ÒëÛ|q?¸YÌîóÛÙİâj6¿Ë•†¬œJ±3O$TÊ
+£*^şáÄÊI!h«+¨­®6”=ş‘¦¬¤…ö•v"¶û\Ğp Åş	Õeëên-?¢Œbâs¤¯E2ÌŞ.Ï"9J!öÜ;=sÀ$vğºBp–öûŒ#Lƒ8²%Y²|PK    ÷\¹ZD?ó^ş      "   .git/hooks/pre-merge-commit.sample}½NÄ@„û}Š!AW‘¤§C ¡kÑõÈ¹8Y‹ìÖ—ãéQÂ]‹Ëñ|ãqıĞõ;õ®v5^"x¥g†Oéz.’–ğÍEÆ+.¢ >-»Ş3Î)1ã¡u5^iy@E5‰!p™¸ÂEÌ#&P™–ÀÑ´Nş~Ä§e\^ÅîÖØüpIP#[4ˆê"qEPÎ%å"dŒÀª41,¹j—±eQ4İZª¥ó›·L÷Æíşò)#õ3Ã¼èŞè	…#…›2Ê¶K¨ráfç›?¾jk1‰5êe[²3VC³¢z|?>ßİ–§İ†Ş ·á•Ïÿyİ³ûPK    ÷\¹Zí60æ  Ô  $   .git/hooks/prepare-commit-msg.sample…S[oÛ6}~Å©$Ô¹˜Ò²½­ğ€6Ë:Ë2ÔŞ[—?Y\)R%©v)úã’VævÆö&Q>‡çæâYİH]»>+²/5è/>ŒŠĞó®µrôğ£¥‘[‚ï	­é¡Ì9Ç÷Te®¹R$Ğ<"ßKøQÒ÷¥ù@0]|î¤
+TÜ£ç.œdÅÌz`\¢3J™‰1`%5Òè™&A²b-œ™lK°í“‡…Ã8ÙÑ8‚tÁ		éO¢£ª
+X'ò@Ç¥rÉ‡6š}"kà<÷“[fÅqÒ7ÆzUÌrk@š7Ñ¨t‘n	K1†x’B0ÈÙ²DÄ·Ï«,0Ì8HİªIPˆÊÍ¹*ºì¤uF,æÍæ~WÄ´'{¬u®­ªrô¤Æ£ã½G­Ñâøb‚™ü8ù~lXÈ®cÁK‰€Ù<+ µ7ğÔåŸ“óh¨3‡E|ÂäÚ|ñ°„ Y ¡–O¡9aÈéEØÕH©Æø@ZÀØôîŞOÜõ$¶äş±ã{iÅÓ¶¹¹×$˜é:Ö<BIëøBxÜhËuVÀy©Š"'&]¨İrKê{c¤ ^eÙõİííz»»İ¼Şı¼şõfU^ÍG›»?Ş\ß¬Êï²Í//¯Vå÷YVOÎÆÿáHVÉªáïÀ4a1Z©=&­È¹³¡~¨ş¯Óºª†ú¡(ëóòò+y˜UàOŸ’še´äÁ)–Ÿ=£â–çá8-p$,Òw Ii~¯sTx{4–·=‰-åmVàÈõCQãùs”qÈ——X­ğí)ñxñ"ÜvqÈñ6øÙÜ½Z•gáÂÜâõz»KÀíÍ›İú§›ß¶øh,\ıpV]üx^]”õø÷Wõ¸†—ù–<ó–KEÖ1©Ù¨xK`ó)òrs÷*?uÌyrìÓ×y‡¯¾§˜ö„{”©ìğ,%´K½¼<YoNfPK    ÷\¹ZÏÀL  ¨      .git/hooks/pre-applypatch.sampleUQNÃ@Dÿ÷C!l+~‘à\ÀI®E²»Z;m
+âî(iâw<zo\ßl[‰[®v5Ş"x¦1ŒÒ´+’–pà"ı	Ç@QP›¦5o]G1ã«Ñ@9§LÖô% ö#É€‘UiÏ›Uõ®¦aÅpˆ)úO.	jd“‚zãQ$îAÑÕ‹£¤\„Œ¯TH…@Ñt¦–2,\ç]¤	©DWÿ#
+G/I/Ë-¡Ê…ıß'ÕÆ¹öb^ƒW¶)»\øL~©š»½
+|¦¢ï—f&«A·ì\¾¯œ±üŒªùET¸½ÏÜı›¯§‡ªy­¾İ³ûPK    ÷\¹Zï|<y  v  $   .git/hooks/fsmonitor-watchman.sample­W[ÚJ~¶EÅ àIöea6G“sÉê(%“=+…9¨±ËvÓíénCĞòÛWÕİæ2d²»oĞ®ªşêöUuëI\kÏ¹ˆ+TeÖAÅ3¶¿×L	.ríş½¾¾ŞV(Ã°?	ÀÏlY•…”Ğ‰â•#ƒ¹báf’bÉDØ‚naL¥Gqœ±çR.†97E=r¯½XÜƒ57äÜÚÑb
+u)LyØk`"…¥LyÆ1…Œ—¨‡a+lÁMá±pÓS`°B¥¹ĞMj¥P˜rÏ{ÖDÉ´ºJ	©‘$˜™TKfij`6"·Ò²6Um´fRY`Ì¡[ÀÊÒÁS0[!ÌÅ´æ"A0©áš™BÃ²Ö&lÁAaÉ_Ñw+­¤4 3û{-Õ‚À…hj¬…=…ù†°s‘—o>üî£#›—t/×6P}P(ØÒŸdº(º«QmMV"oœ u(5‰Ï!‘
+‡™^JÁT@ùŒÉ¨õ;a+\n Ûö™èC›"?sÏ¬ç=˜ÀËŸŞıú/[ZD"—K†Ò)Îë<wÙ¯Şß¼úùİ;ˆÚĞ=cs*"kíªÀda#æjCTT„Me„<ÛƒT÷ar„èƒĞuUIEAu^í¶ÖµNc 3œŠ†a  ıÂÊ’r4gA‚N˜ –IlnC
+M;çfFéœÙ\N G÷Ÿ‹|–rÕíœB£60gşÿ'-Å¬ZäãW¬$Ô
+ïj®şùşí›ÑèßïÇa°“‚	DÍy4ƒgãp`yªy}}^óúšPÃ°dµHŠY“dQ×sxpN–	©„	4g3IÒ(ô\ï}wz˜vÛ²g³¸¶›)Ôuiºm9¸¼OJ™,¶}xyoÿÚNÛnÉÜ–J(´<†nÛ*ò´/­-ºÙ8ƒ¯–Ü³·H¢²B]r*+ú]F}ˆlñ7²';”µ‰Uæ\,eŠ^cT›ìï”€¦ÛYQƒn*:[A’Rj«I@Cïo^½ıpshË[òFvÑô‚¾–2a%´û”Hwâ>»«ÆMØv²fšÜ)Ô•š
+óîóÎK–, :.Ş(ûÖù…ñS*úæ)Ø^9RÙuLğvAûğd…¦VbßƒKëÁ%dp™b"Sìî°÷N}´UØøXñ&6µÏ»Ó§W¿ışjfì¿~Ó‡ÎÎóÁ'„T
+Ùtza@5CN;=È¬ó#h?ñ¾}—	(Õ¯…¥)?W
+µ%—9–rkì(¦-éS•skšûYc¦`"ßÍ˜S^„ym@H™’K{!U/d²LQÃ EFn$°$‘Ëªäº°ã¡ïÔ4W¬Zdoˆ GŠ%	´)˜É†ÂE².Rül}Æ	)·SOÈµ/QÆ±LuDb%_ÒàŒ¸^¢c;¼Ï¢ÜiÜ‹SPû¸E`P-ÁH²“ÕÊ¨hxi£w¡v¡‡®CUrAE¥t=×FuOÃÙ‡‹><ëŞA”D´Î/:3¤ìÁ¹«ïî>N…ñèLû·–ñ,rW2xñ"
+~~óÊÚüèæ8ÑÓƒíÃıÉ…aMFğ1¢@G·}{|RûIš¨£”++åù/º½ƒ`{‚o’ªİ^šf² Ç«VtHıîyuOŸ.§„é$|ï¥œŒ?ŸĞMDO™ñ^4tpIƒï1~Ackï×WjD¿âWóùÔ5K8Í†=‚DähSÒ7OÃ¯¡×]¨œ©Œ¾w+V¯Û«F{¼´%j}ı/ÿ9½ÿŠ?·Qì– ´™ı6ó¨”T0ÿmpyoO¶¾õıÚu	–ª¼øÁÏÉXÆµß­%%_–+¿¬ŸBÊ&Fªt‡O{ô8!öõ¸bÏöÁ€÷3×U×¹™ûpè.Ùâ ÉœŞWï#vÕ£á>T´Ç&'¾è‡…ædh5°T6?²Ïı7İÃNZ»—.¬yY+×l£}“<¥›:WÚø1¯¥Õ÷¢ö+=K#\¡Ú˜‚0sM%d6d%ËíFÅ­¿Ô¾
+8³Ÿjmšİ‹+Tîm-ä´„5½EÇ@Å6VŸnN¤6ÀEóş.éSW€,)hˆóOkæ|¡œœìõvÉë~/Õÿç\ãĞâ¨çàœÈ²Ö’{C=|Át{`ëÓgˆª{Ê¾Ç.üÊ¦×˜£¯¯¿fE=8jˆéÏ·Ä=¥Şèüõ4É&_sÑñÔrhkpñ·ç£Ñ¯h®Ö©OÖ‘Ä0*NãiL¼²,5ZCÍñjMï‹‡v¯Öéh”x“¡†¼poÃÿ PK    ÷\¹Z…Oø	  Ş      .git/hooks/applypatch-msg.sampleU[NÃ0Eÿ½ŠKRU p*~‘`lÀM'±U¿ä™ĞÄŞ‘[Ò–ßÑÑ9wÚ»ÍÖÅ[Õªï4›=Á¦´÷Åe$ô–ú=Äú‚ø4"³	bö±=ª&gÌFz‹¡¤ A:ç¸;…>ìR°iò;Ğì'1EıE%ÅÈÄ0ƒPc\aâ¹QR.Î]&¸Õ`¢pË’òÍÚ×¢ãªğ>hWQÚ9¹}l1Î/c(š­'ˆu|²<¡P4áïRÑªj®ßëÀcÓ)Õat¢Ùj&™²:7¯Íê~t‚BŸ:›Â­+™ØS7g¶Š%Ä=£Y]ÖkĞLıÿãêûù±Y½5?êEıPK    ÷\¹ZÙğü—  B     .git/hooks/update.sample­WßoÛ6~ÿŠ¯²Çe;İÓš8C— C[úT-,.2é‘Tuİÿ>”lÙNó©_,‹÷ã»»ïîèŞ›É\È‰)Xõğ^‚îùrU
+¥naR-VVa^ªô•äR*Ë-e°|akµIKZÈÅ˜õpÉË’2ÌkÄa¡)%qGÉŠ§·1ÖÂàzQ-IZóšrÉ—SğÓD•Yx´ö`®HòyI°…0Ğš¼†“w¦W«Œ[ŠÇ^íRÉ\,X‰ÿ°×4c^–jİ	€õ \;;s¥Jâ†¬Áº [>u-Ês‚·C„´
+¶ oGÓJa•®ÇÀ¯52ÊyUZw^c­äÀbNã],•dÉòÅH¼œ‹ïÁxˆ¥ÊD^?‚;ïXòÚùöJ‚2ğÜ’Fª‰[¡ä¸ãÔ›öñØçšË´xnøAš~d
+2’µGÿ<(š–ÊRY7?„)#)nX@Â´Q8òÒâR-—\f(…$ÖôÈ,îŸÆL•™¦»YÜ3IëğüSÜ*şÅs²5Ò‚Ò[&r|Fòqÿ·×7WÿŒñåÌ!’,¢´Pˆ¯|>tåp
+Ó6»oi<íÀÇ¸8zÛ*âXä¨U…5—väŸRU¹ş­V«²FãĞ;söw•ÑŸâ\S~óÏÎC0ÃVò^Xœ²\°NM&b$*¼ÚÛßÁÈA˜•áz÷ˆ×C§mü$Ù³ş±m©?E’ØzE3Ç—ïš!; ü³Lt†lŸªO™Ø—ßAaùâ,_4Ú›iñ,íôĞeÔ³¹Ò
+¶	%ÙJ«¿)µîÕ¬l(CBœş3ØRwÒ‘‡,å†÷;Š1„dñ'é’uZ.>Á7Äñ°åÂÉÉ	şj]a•Ü„A¾ïwi12<İÃ‡ãâ6¬‘£¡Ÿkéét:ÇîkaÜw“ğ«4$Ü­¿1ûJZ5Ù,¸)5÷à’ÄØLHœO2º›Èª,ñVcğyšüÌ“üË ƒé`ÚcKıâ¾³Øi‚ptã+\3*í4åä6ñ™HlÎĞ÷C“ğ¶G­C¯ìsiÊÍÄm¨ÉÉ(Ä:dQÔC%“EÊ¢ÈJÛ›v°õÿmz½­ÿX5¡í·SŒ73ÄVWÔ	2êÔ÷º ¯#ôw¼\™¤²»;D˜.uBù»–?ÂÀ%ÊíÂÏH8¾!1ø2ğ´öë¹Š®Ğ+­V|ÁífzF2E¹`‘£ÔNŞByBŞ–„ŒuS±éÉ'qÕnÎ°¼_ñ£(}C;ˆûuí¢ÜôşJ!\ï’×†Ğr
+Ø2ıíÅ‘óş@iùƒVe ^jâYºÆšN–7
+¿{/ÈÁ“¥*ˆgûo.›´‹iÛ	GÜßÉ^à‘ú]¶·Şxx}	[ô0m?ˆƒô¾ı(¼áÆµŸo«yz»½~=¬ğP3èıˆXí®ÕW}ğ¾—µ-œI7©q,ŒC 	¼ûş'ÛNşOß¿ïPÉ[©ÖÒï'¨á’JšòmÓ©<Hìó€nnoñ}R˜‚2æ¦ìPK    ÷\¹Zš÷À‰   ½      .git/hooks/post-update.sample-ÌA‚@Fáıœâ¶gğ^ @‘	0mÚBğöFtû½äÕ·®Ï¥ó9Õ©Æ£€OÚteÌ"|°¬¨±’1JÃÂ#ŒU<‡Ø“vgÈÁ–jŒûÖ#ŒŠ«Xx{Ÿ.Ô¯Œ˜³_÷;Œm™ò·	*f×‘‚«6%>yÀ+~Ô8ÛÁÖä2Iú PK    ÷\¹Z
+ùÄ  ^     .git/hooks/pre-push.sample…T]‹İ6}¶~Å‰}éÍÂz¿ŞvJ ôB	KiØ‡ÒÙ_)+K®$¯wC|É7÷¦ò`k4gÎœ™Qóæ²3î2j!üä@/rœ,A{ÿ„Ø3%$g
+fxÅ¢e‚‰ŸóyG˜æ¨I] ï¥µ¤Ğ½¢Ş›$šì©!‡D&AËˆ^SÿD
+I>b’içèæ„Ò½&mÜ>‡tDnËiv’6ñ@^LŠXLÒpŞµŸ)øÎœÅX{ÂU4¢Áï’Ë4}áa˜Ûà­õ‡N2È‘…ø.‡m®Ñ¶ø G‚NëH‹6}‰çDŒÛc(ïˆCo8ôão¿~ÿ®h¸NöúI³àsä?	'GR_òj	2ìç‘\–¢ÔJÿÌÒ–Rwnğa”Éxwh&ô~³v™‰´2("1£8O“5¤ #¬q‘¼hrpLÒ)Œ›æãVÙÂXdn­ï¥E áş`{£îq»ò.õ‡=Ç®Ä2ƒQû…[´°^S gr©¨å‡öX‚õ{Œ£Ügz!EÑ”Ö»‡o˜éü>PŒgB”üwõæºs°wõæ¦‚gènóv_¦V·¾ûD}BÛÆ¤ŒÃí¥¢çK7[‹‘¶\µ?Êvøs‹íÕöLˆEËJ…\ùß†ÕòæĞ¹|¸šŞ(¡¼¨Ì€D1¡Ş|¹]ãõ†Õ¢Jšœ¨ª¿H§,A‘¥D¢ªŞ‰ŠldëqÄş
+ã R5ø@º ]¯ÏóæGÖÄåKAº=ësä#ªCªªÁÇIÉ2üôbbâùù? £å[€Gv_£FäßócÁ3…ÇİÃ
+!ªªk{=·ÖÄ„Ö7shÂö¯ÇİÃ–à\õÙ‰*­C½)§RP¯=î¸Aı³Ÿ:IÈ³Ò4œó“rØK¨øıÁuaÍ_Ş_‘O¯ÄPK    ÷\¹ZéøÊõ  €     .git/hooks/commit-msg.sample}R[oÓ0}®Å!©èEM¢òˆ´JE°&Ñî‰ÒÉI¾&Ö;³ºòß‘–•‹x±¬£ãsù>Ç¯²\¨ÌÖ,f1.è‘7­$ÔZßÃF´N£¨©¸‡«	…ná u…†¬å¥,Æ;.%•ÈŸUÂIöÂÕĞŠÀMÕ5¤Ü,h(Şô.ÜwB‹ájîPs{îqÒÖõ)Q­;Y‚…ëÅ•VÉ3ÍbXÇ]gÁw„µP¸o[£[#¸£“$Ä^+g}=ëtëY|ô>÷\J½§ÒS©î!C4Lq­AŠç’àjaƒÆ†Bé€xª—Šz‰¤±U”2ãVy„To“Ô{Ïãe	•¨•‰Şí’ü	R¨ á‰g{Xj_:¸şR 9/!Jâ¯H‘ár†¼ë­ZC-7”¼bñ¯·6Û	×@¸¾æêæêb8öÛşÆ>\¯ï.o×o>ß]/ßZã K%…‘Í¶›q:]l&ét˜ıVã-6ó¬MXŒÊP‹äÁ"ÚW7W¢á<Âá *j¨Ç‹ ûY­}ÇÓo-¸+j²(»VŠÂ/úïiÙ”1GÖ!Šph8£íFGc6€ÕÆá€N‰$Å©a”m¿`ğu:÷gV&!çw6Q¯ß`ùÿƒğçìû	PK    ÷\¹Z„ìXQÔ  "     .git/hooks/pre-rebase.sampleXmoÛÈş¬ıs’î"¥¢dëCÑ&ç~	îÜk z(ÇY‘CqÏä.»»´¢Küß‹™]R´¬\ŠPLRóòÌì3/Ôè»ÅJé…+ÄHŒàÂÔ[«Ö…‡I:…åÑÑŸgôÿ_àoV.àgYImXöm0¬-&WÒá
+cnA9°†ßça…¹±ÃµòĞ
+9/­w¥×bÊ;øÍ¬f u©ÔP[¼CíÁ©©*z[S‘U­ôV[ÀOÊÓåFùBŒ@üÖmß¸y‡®”Ê²ÄŒÅÙnnÊÒlÈB-­¬Ğ£uÏXk|IÂ2Mí¼EYñC«ĞÁF:È½Å iN
+ËVae¥NX!ÙÑf01°ªı6êğ˜¾çèk)Ò 8ma+NVu‰à
+³qP˜x³Ë‹©UuĞ/¤idiQf[1‚
+í3Òy¢ñ“Ò"ã,®ÑûÀ¬0•#ı˜åÅ6¦)3°èšÒƒên nV¥rfP(çİÎ…ˆÏNÈ« óÁñÉp|<*ÎÃp<Â	,…/P‹‡s2´˜»E2s‹ñr(°tØ~÷‘Øã¶ÕÊ”*M,æğóË³Ëğå‹à`ƒĞ†Ğz´¶©ıt†^¦„•4E®„H¥CÙÃ”= §§‹§S1xş\ĞŸ?va|ÖÍYL…Á+³!Y:”eÙäƒ³{H1£é{09TÒy´s€+ÊÃë_è,ƒ (J>.Ÿ=F“eYr]8*8a…Ùp²’ÿìâüò>‹¦…?,aøÊ€kJ@ÅbÌÇâ<]¹è#oÈÅ\å©ĞÆß(}nÃiY¼KJå<$ImÑûí‰ÑX*ğ!ˆu>v¼H~‡áø­a¤ÈoP¢Š>æ9¬Ğ“y‹•¹£dÍ»hâ	¦Ll&;(?ƒUÃ­Æ"YÕj£´Ÿ3Gz±ãÚ7"ø)ÀUÎÀÖ4”m2KÜXáwÊÏ…Ñåö†n÷’ÓåâC{>ãÏ±„îá8cıÇúò+ê»ÔwU×ÃAõ×°l3Óß«»ÎÛdpûQ\Ë `ïàÑµ¤©)•™ôÊ£=ôÁÿu`ƒĞ2b¹ŠA®b‰À(Ğo’³—ÀA‹ÆY‘5Ú„'b0¨¶±\àÆgo~ú×»£ëçñyåÖ”á§­D!2šumô;2±Ë¶+<{¯‡ÑÌäûô)œ@%k*ßÁ`ñaòî(ù«Lòë?MaAòƒÉøN^Àñ”îîÁÕ¥ò“Å{½˜ExÇ×üUn,F,±‚IgrÏædşt:†ï‚åñ’ã;h{y=;*‡ÉwÜ†Œ{ø?³ÃäÅ»£ëû(Ê²”«ö~P[¥=üóíåË7o8‹À Ñæ½÷â‘ô0D”¼xw|SÈb÷bğd×ÿ†}H½Ûz±ñQõÿøãûË×7/_]
+ÑÊ¼S8™ãº‘6sçq!ïVˆº‰qaèzşÆ4:›“a„±·9±[:×T4P¹Ÿ	OáµNqrĞ
+â‚Áa„>ë®¸,¨_	€–eJ{C“D®¥Ò0AE™²˜úrÆ‚ÒíİtşU¿]ßM¡ˆV³¾‡¹Vä3,ÑcF³,çN©1°~Õ¨2ëÍ<E›¤Æ
+ÒGiKE]W9/oÑÍ@‚ÆÍ#D©Eé1£µòÂ;
+àé¨Ø8]¶àæv,îœ·Š“ 1Eç¤İr‹‰Tä™.P:ãÜ"Ö‰mpŠˆÒökœü±r—4¶İ™‚vZH½&Â˜ylY4i%ÜULm`lˆÄq©U5uD&•Ô€Ÿ˜¢3(¤ÍR“Å¡us¦e…‚N £ÕĞSÃyy«î”,ÃH½¥	
+©Ñ¹Z7V®J„;%Åø§«·7—Woá¨bQ®šñkX±•ëh=ãT„}r#y…[m6Ï„˜Oa>ŸƒÊ÷™F“ÓHEÔë•ğàß¦ÑkJÙ~ıÑ+—ŸóM­²>=VıY9-QjšDñM%¦Jéux!ñtÙ/ê0áQ³vŸû¼>„±B¦M¹íŞhÎ™@.y)¯âAµFC,8o<ª¾p"]é%’”6¡7Jg¼oˆÉò²Ê	İßºÚ`ÃoéM…|Q¡€É2À?(EªªõRûr;ÛÛ}Xû@a'Éƒ¡’ÛnÆÂipI´I·XraSt‹®tPKÏ)æfæ<W«ïz¡3}W‚ycÙ},¹YÌlÜ£sj=G“m!k·{it²B.)ÈÜ¢‹/T¾ÀÀÃĞjv©GÿÄAIóBÒÎ¢\[¡Ï„ À$IòÍO$=k,â¦×ş}tMRô@&IBŸœZì=; Ó{JŸ4I’îç%[Á‡fß?ìË­âÅÉ(·ø†ÉgıIà.‘íœâlç\áüö°‰„V~Æõb4B®>S±$é7€X9aƒ=‰uÎY'Wš+–¦ÿJÕEİvh”Ø).º¥R¸DB¯n')û¹`«Ôö{#QM–%µbÜëºa‡¾ˆöº ,æôş:êÔ4V®Qœ?rü–tU7ar<%|!ù²É¿–ˆÿX"¼Gè¨/ø´˜ÅÃØPiß…×³|&¾CÏÃlNÂØçßcÚ&ğõV(Úõï¿PK    ÷\¹ZÓğß  ß
+  "   .git/hooks/push-to-checkout.sampleVß“Û4~®ÿŠm|	çæúØÒ2m9¦}(0PxÊ(Ò:Zbk]INjşwf%%ç£Ç”GÛÒj¿ûÉõãë¹ë`«ª†—ğ£ê‡Á2 hOC„È0FEÚ¢> ixŒ="°{Š0ŒÁnªºªá½¥P rG> İ$«éˆÍ ôay³‚“EÁ£Ò1ÈQ{ŠUªr¦œÀc‹ÆeXÉy7p È~Z§µ©X´˜vW5DOfíË§WN[ˆVEiOŞ£‹İtF‚LŠE‹U¥ßA7½Îk_å
+š]KûÑ«Hìà¨<©]‡R3 pVÕåØ·.DT&sójƒ­»¸†0j*C¥„ph€ÚÔè‰ıÜ>³\r?V5p^ã±çˆ3Àª ÊM`¨-|Aë¹O«/X«úZÍ}OñY¦oÇÑ~æ|èUÔ‰ß»¢¥ÈZŞM <ğFèOëÓj‡§nJˆåwP².›ûæ‰;„ÄJdà#zO&ëXX¬jØ¡UGâÑ?Ë'<¢Ï±AØaÇ'ğHbêXìnóİÖª!BT>
+êÉEhÙ‹ÎGt${6Ô’NŠŸ­^F¥ø$—Ï\À‰¢…“¥‚=Òp[H“æ³™(ÀÛqæîi•+=¿º‘ñ|A+Ñsm]ó'z–Æã˜Ë6ºŒ,Ï#fCUCàµ<õcˆà¸€šfê²ÿDÿÕ¦2„°\Á_Õ#Ô–áÅO`qõÕ¢z”Ú¹©ş–ğRZšìÕA\3C!(/¦Ü>ÏãÃşJï«º´!Lø´ÀbŞd0G“àâİ¼†Ú™‹	/v•ƒç„ÎÈÌ
+ÇşŠÉÜYnÄTøÑ¥üó¨L“À4#4=¼¹}ù-,®n	°7bLìÇNš—=-ÆYI%Ê€¼Ø8 ò¨ÅnU;<'íZüš Ÿ8ŸÚ²ï…„‡z!C@Iu]V;¨¥Šl'’NØ§§)á¥³ü-y'SŠA\İ!‡¢t¬UwÑ¸À¸§q*f$Åvä"z‰¨Œ+‰{—Y;Œ',âİTeàòP“ÌkÏöM‡!ˆLZn%åB—S92‹]w6Çë”
+UûÁ H_ö¿‰æ&rsa#)o°%')-’œ‡lykpèxZ® ]’LHØÔEr×óko£³³¾—èN¤\lu¢®“ùÇ¨Gqì%»gŸ=!—^¡ò²hN÷ËU2ñ'åÒ-> Ï.0_[’³>İ›vI3VQ¶*£†(¯%‚Òš½!·ï¦5àf¿wL Œ¼ƒ…6°Ù,ÄOcE‘#Â ¢%©…ÇÉky6›<óÍhÚ;Q5Œ»ÍØa€¦ñØz¶Š]õH²hñË â¤{=)­¢Í¢jiV^<Õ´”«|	ãœ0/ıkáâÂtºVG¢Ú£9›<ŸT~w’={{Ï€Ü>MZXTfkUØZ
+Rr¹‚o`!!±€§pûîÇ÷¿oßÿt{»ıùÍË›í›ÛßCF h0gÊ“××nìºÒ´Ô~.ß*ì–ç«¥ì¶*Ø†w Ğ”_¶¦	Ñƒ¯/uVV¹¦•–Kû!ö®äÀÿÅáC^ıwj-®rJ/æu_óØ™dûòSw?c8¥{¢UŠÿPK    ÷\¹Zï³2‚  k     .git/hooks/pre-commit.samplemTÑnÜ6|6¿brgØ1`ÊvİØÀÁuQA4ú%®NìQ¤B®î|AĞo/–Ò]` o¢¸Ü™İå›«Ú…«Ü©¥Zb@/¦<¡‹qƒÜ$708bKÉµ{ì:Ãp¦cù_šØ÷™l¥–x0Ş“E½Çbíx¾[`ç¸Cˆ0i=ö8WÀsw¨ÒÅÑ[µ½8>„ıRDfÃc†i™\Î£k˜ 3)É&ô”³Y\«–&pp™ã î«Âñ9‚‚©=;—‚K$
+¦Ÿÿ´Nî"C"=¨”r-„Q¢­LÊ­gQ~\ıŠû+KÛ«0zw÷g7Š;
+êÄ¬™ï$D‘Ï¤N–x
+ñ3ª[X×¶˜#…õïÁ‰±ş—ş‘çô­`èLîôtÍSä±ü…jRK<µØÇ±ˆ!lŒ÷qWt]}|xz*,…sF&ˆoMr“0œFªTyb0¹qn.ŞÄĞº5´æı@wuŒ¾h˜«WÁá/².	È8ò0ù%³¥”*E/ÔàæşìÄ=¤˜3o¸©Ç¢PË`
+¶`ßFg†ı‰¶X-¥Ï=Ú{ÔTLb-•×b€DCÌcÚWø›@/ƒNhZÓÈ‡)'µÄ\à"C2aMâÀÄÓ=ò`BÓ™d±¤	llËÎ[ªÄ*Ÿ°8}%Èoî°Yø‚³31Â‘Åssê1b‹:™fCR1Å1Xpš¡¸Œ¸AG‰.ñÖñy–$Â‰¾.‘½D†˜ØÔÎ;±QÄÇèMr7×çWcNeä9]\"»ĞOn_G“è  õ)£3Ã@AÒ´Æ{¸PB-e·†ÉNĞ*uÂ”“EŠ¡µnLÓ‘…ÖÒ+ƒßCk¹Ó­óLénı§çW'À‡‡V>Ü=imqş	ú¿/Ÿ¯Ïñ»º¹¯çéjãıûÏş¦SŠé+f™b+Ú½6I¥Ô³Ø½1Õ‡kO}†{=3»˜6ScŠ²c@äÒÑ«Y’•-8iîI,H»uù0LÇíBE¥Ô<œ›wÓN•“ˆo£xWNÏr¼5ŒÙ…õ­R(ÛhÆŸ`™`%Òœ”µzóc-*Õvcš,M"`¾œì_ Æ¶¥`ÎQº\üŞçç	>t[»`éEz^@{l®ÖêPK     ]¹ZµcdW      	   .git/HEADref: refs/heads/main
+PK     
+’—[                      íA    .git/PK    ÷\¹Z7‹@   I             ¤#   .git/descriptionPK     ÷\¹Z            
+          íA‘   .git/info/PK    ÷\¹Zw=Í!®   ğ             ¤¹   .git/info/excludePK    ]¹Z75 ÁP   \             ¤–  .git/configPK     ÷\¹Z                      íA  .git/branches/PK    	’—[¬:=2X  Û  
+           ¤;  .git/indexPK     gw¹Z            
+          íA»  .git/logs/PK     gw¹Z                      íAã  .git/logs/refs/PK     gw¹Z                      íA  .git/logs/refs/heads/PK    »}¹ZÀæ»a  ’            ¤C  .git/logs/refs/heads/mainPK    »}¹ZÀæ»a  ’            ¤Û  .git/logs/HEADPK     ÷\¹Z            
+          íAh  .git/refs/PK     
+’—[                      íA  .git/refs/heads/PK     »}¹Z-Ê•¨)   )             ¤¾  .git/refs/heads/mainPK     ÷\¹Z                      íA	  .git/refs/tags/PK     
+’—[                      íAF	  .git/objects/PK     {¹Z                      íAq	  .git/objects/d7/PK     {¹ZõêWç>   >   6          $Ÿ	  .git/objects/d7/b16caeb3e5e9681d85bb3eb3fd321b1387120dPK     ÷\¹Z                      íA1
+  .git/objects/info/PK     ôz¹Z                      íAa
+  .git/objects/49/PK     ôz¹Z%ÆŞá  á  6          $
+  .git/objects/49/a83639764c0773956be6c24e3a5b4097402653PK     fw¹Z                      íAÄ  .git/objects/85/PK     fw¹Z¤_Ül‰  ‰  6          $ò  .git/objects/85/fd9a649dfe9c84de5d20a7d5458785b7f02dbePK     fw¹Z                      íAÏ  .git/objects/08/PK     fw¹Z¯~J    6          $ı  .git/objects/08/a50216492b4e69ae0ba4dffadbeba7cf4ff217PK     »}¹Z                      íAV  .git/objects/9b/PK     »}¹Z°ÙÑ/²   ²   6          $„  .git/objects/9b/a50c9273858b546beb5354f7b0a97d3852480dPK     ’—[                      íAŠ  .git/objects/46/PK     ’—[(·O‚ê  ê  6          $¸  .git/objects/46/6dad97130484eaa5f1098e416b6941908bc959PK     ô|¹Z                      íAö  .git/objects/3e/PK     ô|¹Z}qÃ§Ê   Ê   6          $$  .git/objects/3e/2a9977e6f84c6dc43a0c05fc7932d91b78e1abPK     gw¹Z                      íAB  .git/objects/56/PK     gw¹ZÍ*]‚§   §   6          $p  .git/objects/56/e29f0c3e9bcdf5845efa6909ee8773e92c7b08PK     Ny¹Z                      íAk  .git/objects/ce/PK     Ny¹ZÅ¸Ò¹4  4  6          $™  .git/objects/ce/f3bf299e9ce283fc718a33db4c8eaba331de79PK     C}¹Z                      íA!  .git/objects/42/PK     C}¹Z€ƒ…¨   ¨   6          $O  .git/objects/42/403409f33f33e738180ffdafde7efa9d92d274PK     Ny¹Z                      íAK   .git/objects/be/PK     Ny¹Z×8x=   =   6          $y   .git/objects/be/e257654f5b8e585f72892ee6a5977400235983PK     ®}¹Z                      íA
+!  .git/objects/38/PK     ®}¹Zøk@÷   ÷   6          $8!  .git/objects/38/3809fcad050d05259c900480c4656135800e1dPK     3}¹Z                      íAƒ"  .git/objects/2e/PK     3}¹Zã‰¿éi   i   6          $±"  .git/objects/2e/389c8d1733fd51f5e5201758908d3269473405PK     gw¹Z                      íAn#  .git/objects/4e/PK     gw¹Z®é <Š   Š   6          $œ#  .git/objects/4e/df7401ad8335c1d2873ed89db151a1f5892b42PK     »}¹Z                      íAz$  .git/objects/37/PK     »}¹Z8ø)G  G  6          $¨$  .git/objects/37/f3218cf3fbfc104eeb47038f8ab55a1fcb7fddPK     	’—[                      íAC&  .git/objects/79/PK     	’—[¡è?   ?   6          $q&  .git/objects/79/80e831844b8572422a28e0bd96930bffd868a3PK     fw¹Z                      íA'  .git/objects/0e/PK     fw¹Za€ùº¯   ¯   6          $2'  .git/objects/0e/15ca5b0d9d0585935b38afe1e48f5de7699173PK     {¹Z                      íA5(  .git/objects/02/PK     {¹ZEáP³Ç   Ç   6          $c(  .git/objects/02/3cd412211a396cdb9737ff4b787f3d67a4d96cPK     {y¹Z                      íA~)  .git/objects/cc/PK     {y¹Z¸yÁ`   `   6          $¬)  .git/objects/cc/e7305b2a1fe92874f8b110e815d847ccaa20fbPK     ôz¹Z                      íA`*  .git/objects/13/PK     ôz¹ZAÒ/Z>   >   6          $*  .git/objects/13/5350f5acd489e2c751f803c499f1c133b91b09PK     Ny¹Z                      íA +  .git/objects/a1/PK     Ny¹Z7‹1Õ    6          $N+  .git/objects/a1/bfc620175cc813aa030f245251e913f0afc03aPK     Ny¹Z                      íAÀ-  .git/objects/1c/PK     Ny¹Z§¬¶i    6          $î-  .git/objects/1c/30fd868abb8678cb7e294c1d891a8f6ceee1caPK     	’—[                      íAZ1  .git/objects/97/PK     	’—[¥„b£G  G  6          $ˆ1  .git/objects/97/54bbe45b0c3075e906d2c231a944e229f46125PK     Yw¹Z                      íA#3  .git/objects/4b/PK     Yw¹Z«:à       6          $Q3  .git/objects/4b/825dc642cb6eb9a060e54bf8d69288fbee4904PK     {¹Z                      íA´3  .git/objects/2f/PK     {¹ZæİSMI  I  6          $â3  .git/objects/2f/93e06fe500f0aca799cc0550a6754700275754PK     ÷\¹Z                      íA5  .git/objects/pack/PK     {y¹Z                      íA¯5  .git/objects/ed/PK     {y¹Z9q ¿    6          $İ5  .git/objects/ed/2ad58e6d4e284c4ab8b1f1b109328b0e8826c6PK     C}¹Z                      íA67  .git/objects/0c/PK     C}¹Zlêô0H  H  6          $d7  .git/objects/0c/633ae1dc6d2a87d6286691d4d5b42c71f39b47PK     fw¹Z                      íA 9  .git/objects/8a/PK     fw¹Zµ}uïM   M   6          $.9  .git/objects/8a/82dd3a19ccd258440d6bd599c3305676b4a30cPK     {y¹Z                      íAÏ9  .git/objects/17/PK     {y¹Z·Ã¿Õ¹   ¹   6          $ı9  .git/objects/17/e49320d5e0f584c67b1d684a3f575cf4861380PK    	’—[#Âª5               ¤
+;  .git/COMMIT_EDITMSGPK     ÷\¹Z                      íAY<  .git/hooks/PK    ÷\¹Z’Äø–L               í‚<  .git/hooks/pre-receive.samplePK    ÷\¹ZD?ó^ş      "          í	>  .git/hooks/pre-merge-commit.samplePK    ÷\¹Zí60æ  Ô  $          íG?  .git/hooks/prepare-commit-msg.samplePK    ÷\¹ZÏÀL  ¨             íoB  .git/hooks/pre-applypatch.samplePK    ÷\¹Zï|<y  v  $          í´C  .git/hooks/fsmonitor-watchman.samplePK    ÷\¹Z…Oø	  Ş             íK  .git/hooks/applypatch-msg.samplePK    ÷\¹ZÙğü—  B            íbL  .git/hooks/update.samplePK    ÷\¹Zš÷À‰   ½             í/Q  .git/hooks/post-update.samplePK    ÷\¹Z
+ùÄ  ^            íóQ  .git/hooks/pre-push.samplePK    ÷\¹ZéøÊõ  €            íïT  .git/hooks/commit-msg.samplePK    ÷\¹Z„ìXQÔ  "            íW  .git/hooks/pre-rebase.samplePK    ÷\¹ZÓğß  ß
+  "          í,_  .git/hooks/push-to-checkout.samplePK    ÷\¹Zï³2‚  k            íKd  .git/hooks/pre-commit.samplePK     ]¹ZµcdW      	          ¤h  .git/HEADPK    ] ] m  Ch    
+=== TRY READING CODE BUCKET FILES ===
+--- File: code.zip ---
+--- File: flag.txt ---
+
+=== TRY READING SITE BUCKET FILES ===
+--- File: css/styles.css ---
+--- File: images/favicon.ico ---
+--- File: index.html ---
+--- File: js/scripts.js ---
+
+=== DOWNLOAD AND INSPECT LAMBDA CODE ===
+Code URL obtained
+Archive:  /tmp/lambda_code.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+      591  2049-01-01 00:00   lambda_function.py
+---------                     -------
+      591                     1 file
+Archive:  /tmp/lambda_code.zip
+  inflating: lambda_function.py      
+--- Lambda code files ---
+==== /tmp/lambda_extract/lambda_function.py ====
+import subprocess
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+def run_command(command):
+    try:
+        logger.info("Running shell command: \"{}\"".format(command))
+        result = subprocess.run(command, shell=True, stdout=subprocess.PIPE)
+        logger.info("Command output:\n---\n{}\n---".format(result.stdout.decode('UTF-8')))
+    except Exception as e:
+        logger.error("Exception: {}".format(e))
+        return False
+
+    return True
+
+def lambda_handler(event, context):
+    domain = event.get('domain')
+    run_command('/opt/nslookup ' + domain)
+=== DONE ===
